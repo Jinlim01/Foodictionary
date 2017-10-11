@@ -16,7 +16,6 @@ and open the template in the editor.
     </head>
     <body>
         <form action="login.php" method="post">
-            <div class="col-md-12">
                 <div class="col-md-4 col-sm-6 col-md-offset-1 col-sm-offset-3 form-line"  id="login_form" name="login_form">
                     <div class="form-group">
                         <label for="">Username or Email</label>
@@ -35,7 +34,6 @@ and open the template in the editor.
                         <input type="submit" name="login" id="login_button" class="button submit" value="Login">
                     </div>
                 </div>
-            </div>
         </form>
         <form action="register.php" method="post">
             <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
