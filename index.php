@@ -10,60 +10,100 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Login</title>
+        <title></title>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
+
+        <!-- Custom fonts for this template -->
+        <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+        <!-- Plugin CSS -->
+        <link href="vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+        <!-- Custom styles for this template -->
+        <link href="css/creative.min.css" rel="stylesheet">
     </head>
-    <body>
-        <form action="login.php" method="post">
-                <div class="col-md-4 col-sm-6 col-md-offset-1 col-sm-offset-3 form-line"  id="login_form" name="login_form">
-                    <div class="form-group">
-                        <label for="">Username or Email</label>
-                        <input type="text" class="form-control" id="" name="id" required="">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input type="password" class="form-control" id="" name="password" required="">
-                    </div>
-                    <div>
-                        <?php
-                        if (isset($_SESSION['error1'])) {
-                            echo "<label>" . $_SESSION['error1'] . "</label><br>";
-                        }
-                        ?>
-                        <input type="submit" name="login" id="login_button" class="button submit" value="Login">
-                    </div>
-                </div>
-        </form>
-        <form action="register.php" method="post">
-            <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
-                <div class="form-group">
-                    <label for="">Username</label>
-                    <input type="text" class="form-control" id="" name="id" required=""> 
-                </div>
-                <div class="form-group">
-                    <label for="">Email Address</label>
-                    <input type="email" class="form-control" id="" name="email" placeholder="eg, abc@hotmail.com" required="">
-                </div>	
-                <div class="form-group">
-                    <label for="">Password</label>
-                    <input type="" class="form-control" name="password" id="" placeholder="at least 6 characters" required="">
-                </div>
-                <div class="form-group">
-                    <label for="">Confirm Password</label>
-                    <input type="" class="form-control" id="" name="retype_password" placeholder="Please enter your password again" required="">
-                </div>
-                <div>
-                    <?php
-                    if (isset($_SESSION['error2'])) {
-                        echo "<label>" . $_SESSION['error2'] . "</label><br>";
-                    }
-                    ?>
-                    <input type="submit" name="submit" id="register_button" class="button submit" value="Register">
+
+    <body id="page-top">
+        <header class="masthead">
+            <div class="header-content">
+                <div class="header-content-inner">
+                    <h1 id="homeHeading">FOODICTIONARY</h1>
+                    <hr>
+                    
+                    <a class="btn btn-primary btn-xl js-scroll-trigger" href="">Get Started</a>
                 </div>
             </div>
-        </form>
+        </header>
 
+        <section id="about">
+            <div class="container">
+                <form action="login.php" method="post">
+                    <div class="col-md-4 col-sm-6 col-md-offset-1 col-sm-offset-3 form-line"  id="login_form" name="login_form">
+                        <div class="form-group">
+                            <label for="">Username or Email</label>
+                            <input type="text" class="form-control" id="" name="id" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control" id="" name="password" required="">
+                        </div>
+                        <div>
+                            <?php
+                            if (isset($_SESSION['error1'])) {
+                                echo "<label>" . $_SESSION['error1'] . "</label><br>";
+                            }
+                            ?>
+                            <input type="submit" name="login" id="login_button" class="button submit" value="Login">
+                        </div>
+                    </div>
+                </form>
+                <form action="register.php" method="post">
+                    <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
+                        <div class="form-group">
+                            <label for="">Username</label>
+                            <input type="text" class="form-control" id="" name="id" required=""> 
+                        </div>
+                        <div class="form-group">
+                            <label for="">Email Address</label>
+                            <input type="email" class="form-control" id="" name="email" placeholder="eg, abc@hotmail.com" required="">
+                        </div>	
+                        <div class="form-group">
+                            <label for="">Password</label>
+                            <input type="" class="form-control" name="password" id="" placeholder="at least 6 characters" required="">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Confirm Password</label>
+                            <input type="" class="form-control" id="" name="retype_password" placeholder="Please enter your password again" required="">
+                        </div>
+                        <div>
+                            <?php
+                            if (isset($_SESSION['error2'])) {
+                                echo "<label>" . $_SESSION['error2'] . "</label><br>";
+                            }
+                            ?>
+                            <input type="submit" name="submit" id="register_button" class="button submit" value="Register">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/popper/popper.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="js/creative.min.js"></script>
     </body>
 
 </html>
