@@ -61,6 +61,7 @@ and open the template in the editor.
                         </div>
                     </div>
                 </form>
+                
                 <form action="register.php" method="post">
                     <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
                         <div class="form-group">
@@ -106,6 +107,9 @@ and open the template in the editor.
         <script src="js/creative.min.js"></script>
     </body>
 
+    <footer class="container-fluid">
+        <p>UDP Group Project Created by: Jin, Kyle, Bin & Emil</p>
+    </footer>
 </html>
 <?php
 unset($_SESSION['error1']);

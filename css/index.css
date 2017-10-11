@@ -29,3 +29,19 @@ and open the template in the editor.
     color: #fff;
     text-shadow: 2px 2px 4px #000;
 }
+
+footer{
+    background-color: #f05f40;
+}
+
+footer p{
+    color: #fff;
+    font-weight: bold;
+    font-size: 10px;
+    text-align: center;
+    padding: 10px;
+}
+
+.col-sm-6{
+    margin-top: 40px;
+}
