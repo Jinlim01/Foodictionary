@@ -29,6 +29,17 @@ and open the template in the editor.
                 echo '<hr>';
                 
             }
+            
+            
+            for($i=0;$i<sizeof($list3);$i++){
+                echo $list3[$i]['food_category_name'] .'<br>';
+            }
+            
+            echo '<hr>';
+            
+            for($i=0;$i<sizeof($list4);$i++){
+                echo $list4[$i]['food_type_name'].'<br>';
+            }
         ?>
         
     </body>
