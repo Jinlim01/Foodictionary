@@ -30,11 +30,21 @@ if (!empty($list1)) {
     exit();
 }
 
+
+$var = filter_var($email, FILTER_VALIDATE_EMAIL);
+if( $var == FALSE)
+{
+    $_SESSION['error2'] = "Invalid email format!";
+    header('location:index.php');
+    exit();
+}
+
 if ($password != $retype_password) {
     $_SESSION['error2'] = "Passwords don't match";
     header('location:index.php');
     exit();
 }
+
 
 $p1 = '/[A-Z]/';
 
