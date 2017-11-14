@@ -12,7 +12,7 @@ $user_name = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 
 //echo $user_name." ".$password;
-
+if(strlen($user_name) >= 6){
 $query1 = "SELECT * FROM user where user_name=:user_name OR email_address=:email_address ";
 $statement1 = $db->prepare($query1);
 $statement1->bindValue(":user_name", $user_name);
@@ -33,5 +33,10 @@ if (isset($list1)) {
     }
 } else {
     $_SESSION['error1'] = "Username/Email address or password is incorrect";
+    header('location: index.php');
+}}
+else
+{
+    $_SESSION['error1'] = "Username should be 6 characters long";
     header('location: index.php');
 }
