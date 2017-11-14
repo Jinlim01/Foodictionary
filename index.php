@@ -25,6 +25,9 @@ and open the template in the editor.
 
         <!-- Custom styles for this template -->
         <link href="css/creative.min.css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="js/register_js.js" type="text/javascript"></script>
+        <script src="js/login_js.js" type="text/javascript"></script>
     </head>
 
     <body id="page-top">
@@ -41,15 +44,15 @@ and open the template in the editor.
 
         <section id="about">
             <div class="container">
-                <form action="login.php" method="post">
+                <form id="login-form" action="login.php" method="post">
                     <div class="col-md-4 col-sm-6 col-md-offset-1 col-sm-offset-3 form-line"  id="login_form" name="login_form">
                         <div class="form-group">
                             <label for="">Username or Email</label>
-                            <input type="text" class="form-control" id="" name="id" required="">
+                            <input type="text" class="form-control" id="username" name="id" required="">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" id="" name="password" required="">
+                            <input type="password" class="form-control" id="password" name="password" required="">
                         </div>
                         <div>
                             <?php
@@ -57,24 +60,25 @@ and open the template in the editor.
                                 echo "<label>" . $_SESSION['error1'] . "</label><br>";
                             }
                             ?>
-                            <input type="submit" name="login" id="login_button" class="button submit" value="Login">
+                            <input type="button" name="login" id="login_button" class="login loginmodal-submit" value="Login">
+
                         </div>
                     </div>
                 </form>
                 
-                <form action="register.php" method="post">
+                <form id="register-form" action="register.php" method="post">
                     <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
                         <div class="form-group">
                             <label for="">Username</label>
-                            <input type="text" class="form-control" id="" name="id" required=""> 
+                            <input type="text" class="form-control" id="username" name="id" required=""> 
                         </div>
                         <div class="form-group">
                             <label for="">Email Address</label>
-                            <input type="email" class="form-control" id="" name="email" placeholder="eg, abc@hotmail.com" required="">
+                            <input type="email" class="form-control" id="email" name="email" placeholder="eg, abc@hotmail.com" required="">
                         </div>	
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="" class="form-control" name="password" id="" placeholder="at least 6 characters" required="">
+                            <input type="" class="form-control" name="password" id="retype_password" placeholder="at least 6 characters" required="">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
@@ -86,7 +90,8 @@ and open the template in the editor.
                                 echo "<label>" . $_SESSION['error2'] . "</label><br>";
                             }
                             ?>
-                            <input type="submit" name="submit" id="register_button" class="button submit" value="Register">
+                         <button type="button" name="register" id="register_button" class="button submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>     Submit</button>
+
                         </div>
                     </div>
                 </form>
