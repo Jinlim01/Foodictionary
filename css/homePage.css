@@ -106,7 +106,3 @@ and open the template in the editor.
     -webkit-transform: translate3d(0,0,0);
     transform: translate3d(0,0,0);
 }
-
-.filter-box{
-    margin-top: 100px;
-}
