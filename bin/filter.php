@@ -6,31 +6,27 @@
  * and open the template in the editor.
  */
 
+require_once('database.php');
 
-$variable = $_SERVER['QUERY_STRING'];
-echo $variable;
+$type = $_POST['type'];
+$style = filter_input(INPUT_POST,'style',FILTER_SANITIZE_STRING);
 
-$choices = explode("&", $variable);
-print_r($choices);
-echo '<br>';
 
-$type = array();
-$style = array();
-$a = 0;
-$b = 0;
-for ($i = 0; $i < sizeof($choices); $i++) {
-    if (preg_match('/type/', $choices[$i])) {
-        $type[$a] = substr($choices[$i], 5);
-        $a++;
-    }
-    if (preg_match('/style/', $choices[$i])) {
-        $style[$b] = substr($choices[$i],6);
-        $b++;
-    }
+$query = "SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id AND recipe.food_category_id = " . $style ;
+
+foreach ($type as $type){
+    $query =  $query . " AND  recipe_food_type.food_type_id= " . $type;
 }
 
+echo $query . "<br>";
 
-print_r($type);
-echo '<br>';
-print_r($style);
-echo '<br>';
+$statement1 =$db->prepare($query);
+$statement1->execute();
+$list = $statement1->fetchAll();
+$statement1->closeCursor();
+
+
+//SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id AND recipe_food_type.food_type_id = 7 AND recipe.food_category_id = 1
+
+
+print_r($list);
