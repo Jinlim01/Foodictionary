@@ -43,7 +43,6 @@ and open the template in the editor.
     position: relative;
     text-align: center;
     cursor: default;
-    background-color: #cecece;
     padding: 0px !important;
     margin-bottom: 50px;
 }
@@ -66,7 +65,7 @@ and open the template in the editor.
 
 .card-title a:hover{
     text-decoration: none;
-} 
+}
 
 .rating span{
     color: #FFF;

@@ -28,15 +28,19 @@ and open the template in the editor.
                 color: #000;
                 font-family: cursive;
             }
-            
+
             .filter-btn:hover{
                 background-color: #eb3812;
                 transition-duration: 0.4s;
             }
-            
+
             .filter-btn:hover span{
                 color: #fff;
                 transition-duration: 0.4s;
+            }
+            
+            .menu{
+                background-color: #dee0e2;
             }
         </style>
     </head>
