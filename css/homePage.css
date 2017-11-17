@@ -18,18 +18,19 @@ and open the template in the editor.
 
 .option-list:hover{
     background-color: #fff;
-    color: #eb3812;
+    color: #f05f40;
     transition-duration: 0.4s;
 }
 
 .option-list:hover a{
-    color: #eb3812;
+    color: #f05f40;
     text-decoration: none;
     transition-duration: 0.4s;
 }
 
+
 .option-bar{
-    background-color: #eb3812;  
+    background-color: #f05f40;  
 }
 
 .menu-list{

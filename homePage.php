@@ -11,6 +11,7 @@ and open the template in the editor.
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/homePage.css" rel="stylesheet" type="text/css"/>
+        <link href="css/index.css" rel="stylesheet" type="text/css"/>
         <!--Font Awesome css-->
         <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
@@ -30,7 +31,7 @@ and open the template in the editor.
             }
 
             .filter-btn:hover{
-                background-color: #eb3812;
+                background-color: #ff785b;
                 transition-duration: 0.4s;
             }
 
@@ -38,7 +39,7 @@ and open the template in the editor.
                 color: #fff;
                 transition-duration: 0.4s;
             }
-            
+
             .menu{
                 background-color: #dee0e2;
             }
@@ -47,7 +48,7 @@ and open the template in the editor.
     <body>
         <?php include 'navbar.php' ?>
 
-        <div class="container-fluid option-bar" style="background-color: #eb3812;">
+        <div class="container-fluid option-bar" style="background-color: #ff785b;">
             <div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 option-list">
                 <center><a href="">Cook in 30 Minutes</a></center>
             </div>
@@ -85,4 +86,8 @@ and open the template in the editor.
             </div>
         </div>
     </body>
+
+    <footer class="footer navbar-fixed-bottom">
+        <p>UDP Group Project Created by: Jin, Kyle, Bin & Emil</p>
+    </footer>
 </html>
