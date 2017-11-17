@@ -12,13 +12,16 @@ $type = $_POST['type'];
 $style = filter_input(INPUT_POST,'style',FILTER_SANITIZE_STRING);
 
 
-$query = "SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id AND recipe.food_category_id = " . $style ;
+$query = "SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id" ;
 
-foreach ($type as $type){
-    $query =  $query . " AND  recipe_food_type.food_type_id= " . $type;
+if(isset($style)){
+    $query = $query . "AND recipe.food_category_id = " . $style ;
 }
-
-echo $query . "<br>";
+if(isset($type)){
+    foreach ($type as $type){
+        $query =  $query . " AND  recipe_food_type.food_type_id= " . $type;
+    }
+}
 
 $statement1 =$db->prepare($query);
 $statement1->execute();
@@ -27,6 +30,3 @@ $statement1->closeCursor();
 
 
 //SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id AND recipe_food_type.food_type_id = 7 AND recipe.food_category_id = 1
-
-
-print_r($list);

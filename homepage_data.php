@@ -30,15 +30,4 @@ for ($i = 0; $i < sizeof($list1); $i++) {
 
 
 
-$query3 = "SELECT * FROM food_category";
-$statement3 = $db->prepare($query3);
-$statement3->execute();
-$list3 = $statement3->fetchAll();
-$statement3->closeCursor();
 
-
-$query4 = "SELECT * FROM food_type";
-$statement4 = $db->prepare($query4);
-$statement4->execute();
-$list4 = $statement4->fetchAll();
-$statement4->closeCursor();
