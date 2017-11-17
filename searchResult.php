@@ -1,7 +1,6 @@
 <?php
     require_once('bin/filter.php');
-    
-
+   
     $query3 = "SELECT * FROM food_category";
     $statement3 = $db->prepare($query3);
     $statement3->execute();
@@ -73,7 +72,7 @@
                     foreach($list as $list){
                         echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
                               <a href="#"><img class="img-responsive recipe-img" src="img/'.$list['image'].'.jpg"></a>
-                              <div class="rating"><span>Rating:<br>'.$list['rating_number'].'/10.0</span></div>
+                              <a href="recipePage.php?id='.$list['recipe_id'].'"><div class="rating"><span>Rating:<br>'.$list['rating_number'].'/10.0</span></div></a>
 
                               <div class="card-body">
                               <h4 class="card-title"><a href="#">'.$list['food_name'].'</a> </h4>

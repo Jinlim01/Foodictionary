@@ -50,36 +50,17 @@ and open the template in the editor.
         <div class="container-fluid">        
             <div class="col-md-8 col-lg-8 col-sm-8 menu-list">
                 <h2 class="menu-title">CATEGORY</h2>
-                <div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-                    <a href="#"><img class="img-responsive recipe-img" src="img/salmon.jpg"></a>
-                    <div class="rating"><span>Rating:<br>8.1/10.0</span></div>
-
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="#">Teriyaki Salmon</a></h4>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-                    <a href="#"><img class="img-responsive recipe-img" src="img/salmon.jpg"></a>
-                    <div class="rating"><span>Rating:<br>8.1/10.0</span></div>
-
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="#">Teriyaki Salmon</a></h4>
-                    </div>
-                </div>
-
                 <?php
-                foreach ($list1 as $list1) {
-                    echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-                              <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1['image'] . '.jpg"></a>
-                              <div class="rating"><span>Rating:<br>' . $list1['rating_number'] . '/10.0</span></div>
-
-                              <div class="card-body">
-                              <h4 class="card-title"><a href="#">' . $list1['food_name'] . '</a> </h4>
-                              </div>
-                              </div>';
-                }
+                    for($i=0;$i<sizeof($list3);$i++){
+                        echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
+                                <a href="#"><img class="img-responsive recipe-img" src="img/'.$list3[$i]['food_category_image'].'"></a>
+                                <div class="card-body">
+                                    <h4 class="card-title"><a href="#">'.$list3[$i]['food_category_name'].'</a></h4>
+                                </div>
+                                </div>';
+                    }
                 ?>
+                
             </div>
 
 
@@ -103,28 +84,33 @@ and open the template in the editor.
                 </form>
             </div>
         </div>
-
         <div class="container">
             <h2 class="">DISHES</h2>
-            <div class="col-sm-8 col-md-2 menu">
-                <a href="#"><img class="img-responsive recipe-img" src="img/salmon.jpg"></a>
-                <div class="rating"><span>Rating:<br>8.1/10.0</span></div>
+            <?php 
+            $length = sizeof($list1);
+            if($length < 6){
+                for($i=0;$i<$length;$i++){
+                echo ' <div class="col-sm-8 col-md-2 menu">
+                    <a href="#"><img class="img-responsive recipe-img" src="img/'.$list1[$i]['image'].'"></a>
+                    <a href="recipePage.php?id='.$list1[$i]['recipe_id'].'"><div class="rating"><span>Rating:<br>'.$list1[$i]['rating_number'].'/10.0</span></div></a>
 
-                <div class="card-body">
-                    <h4 class="card-title"><a href="#">Teriyaki Salmon</a></h4>
-                </div>
-            </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">'.$list1[$i]['food_name'].'</a></h4>
+                    </div>
+                </div>'
+              ;}
+            }else{
+                for($i=($length-1);$i>($length-7);$i--){
+                    echo ' <div class="col-sm-8 col-md-2 menu">
+                    <a href="#"><img class="img-responsive recipe-img" src="img/'.$list1[$i]['image'].'"></a>
+                    <a href="recipePage.php?id='.$list1[$i]['recipe_id'].'"><div class="rating"><span>Rating:<br>'.$list1[$i]['rating_number'].'/10.0</span></div></a>
 
-            <?php
-//            foreach ($list3 as $list3) {
-//                echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-//                              <a href="#"><img class="img-responsive recipe-img" src="img/' . $list3[$i]['food_category_image'] . '.jpg"></a>
-//                              <div class="card-body">
-//                              <h4 class="card-title"><a href="#">' . $list3[$i]['food_category_name'] . '</a> </h4>
-//                              </div>
-//                              </div>';
-//            }
-//            
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">'.$list1[$i]['food_name'].'</a></h4>
+                    </div>
+                </div>';
+                }
+            }
             ?>
         </div>
 

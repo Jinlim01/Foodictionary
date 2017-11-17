@@ -1,3 +1,14 @@
+<?php 
+    require_once('database.php');
+    $id = $_GET['id'];
+    
+    $query1 = "SELECT * FROM recipe where recipe_id = :recipe_id";
+    $statement1 = $db->prepare($query1);
+    $statement1->bindValue(":recipe_id", $id);
+    $statement1->execute();
+    $list1 = $statement1->fetch();
+    $statement1->closeCursor();
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -17,16 +28,14 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid pic-container">
-            <img class="img-responsive img-test" src="img/test.jpg" alt=""/>
-            <h1 class="recipe-name"><span>Kung Fu Panda &nbsp;<br>&nbsp;Grill Panda</span></h1>
+            <img class="img-responsive img-test" <?php echo'src="img/'.$list1['image'].'"';?> alt=""/>
+            <h1 class="recipe-name"><span><?php echo $list1['food_name'] ?>&nbsp;</span></h1>
         </div>
 
         <div class="container ingredients-container">
             <h2 class="ingredients"><i class="fa fa-check-square-o"></i>&nbsp; INGREDIENTS</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+               <?php  echo $list1['ingridiants'] ; ?>
             </p>
         </div>
 
@@ -35,11 +44,7 @@ and open the template in the editor.
             <details>
                 <summary>Click to view steps</summary>
                 <ol>
-                    <li>Boiled Water</li>
-                    <li>Boiled Water</li>
-                    <li>Boiled Water</li>
-                    <li>Boiled Water</li>
-                    <li>Boiled Water</li>
+                    <?php echo $list1['instructions']; ?>
                 </ol>
             </details>
         </div>

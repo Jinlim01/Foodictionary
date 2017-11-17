@@ -8,22 +8,33 @@
 
 require_once('database.php');
 
-$type = $_POST['type'];
-$style = filter_input(INPUT_POST,'style',FILTER_SANITIZE_STRING);
 
+$style = filter_input(INPUT_POST, 'style', FILTER_SANITIZE_STRING);
 
-$query = "SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id" ;
-
-if(isset($style)){
-    $query = $query . "AND recipe.food_category_id = " . $style ;
-}
-if(isset($type)){
-    foreach ($type as $type){
-        $query =  $query . " AND  recipe_food_type.food_type_id= " . $type;
+if(isset($_POST['type'])){
+    $type=$_POST['type'];
+    $query = "SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id ";
+    if (isset($style)) {
+        $query = $query . "AND recipe.food_category_id = " . $style;
+    }
+}else{
+    if (isset($style)) {
+        $query = "SELECT * from recipe WHERE ";
+        $query = $query . "recipe.food_category_id = " . $style;
     }
 }
 
-$statement1 =$db->prepare($query);
+
+
+
+if (isset($type)) {
+    foreach ($type as $type) {
+        $query = $query . " AND recipe_food_type.food_type_id= " . $type;
+    }
+}
+
+
+$statement1 = $db->prepare($query);
 $statement1->execute();
 $list = $statement1->fetchAll();
 $statement1->closeCursor();
