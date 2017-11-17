@@ -14,7 +14,8 @@ and open the template in the editor.
     </head>
     <body>
         <div class="container-fluid pic-container">
-            <a><img class="img-responsive img-test" src="img/test.jpg" alt=""/></a>
+            <img class="img-responsive img-test" src="img/test.jpg" alt=""/>
+            <h2 class="recipe-name"><span>A Movie in the Park:<br />Kung Fu Panda</span></h2>
         </div>
     </body>
 </html>

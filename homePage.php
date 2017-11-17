@@ -15,35 +15,6 @@ and open the template in the editor.
         <!--Font Awesome css-->
         <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
-
-        <style>
-            .filter-box{
-                margin-top: 100px;
-                border-radius: 30px;
-                border-style: outset;
-                border-color: #cecece;
-                padding: 10px;
-            }
-
-            .filter-btn span{
-                color: #000;
-                font-family: cursive;
-            }
-
-            .filter-btn:hover{
-                background-color: #ff785b;
-                transition-duration: 0.4s;
-            }
-
-            .filter-btn:hover span{
-                color: #fff;
-                transition-duration: 0.4s;
-            }
-
-            .menu{
-                background-color: #dee0e2;
-            }
-        </style>
     </head>
     <body>
         <?php include 'navbar.php' ?>
