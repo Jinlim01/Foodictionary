@@ -33,7 +33,7 @@ and open the template in the editor.
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-<?php include 'navbar.php' ?>
+        <?php include 'navbar.php' ?>
 
         <div class="container-fluid option-bar" style="background-color: #ff785b;">
             <div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 option-list">
@@ -47,65 +47,90 @@ and open the template in the editor.
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container-fluid">        
             <div class="col-md-8 col-lg-8 col-sm-8 menu-list">
+                <h2 class="menu-title">CATEGORY</h2>
                 <div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
                     <a href="#"><img class="img-responsive recipe-img" src="img/salmon.jpg"></a>
                     <div class="rating"><span>Rating:<br>8.1/10.0</span></div>
 
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#">Teriyaki Salmon</a> </h4>
+                        <h4 class="card-title"><a href="#">Teriyaki Salmon</a></h4>
                     </div>
                 </div>
-                <?php 
-                    foreach($list1 as $list1){
-                        echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-                              <a href="#"><img class="img-responsive recipe-img" src="img/'.$list1['image'].'.jpg"></a>
-                              <div class="rating"><span>Rating:<br>'.$list1['rating_number'].'/10.0</span></div>
+
+                <div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
+                    <a href="#"><img class="img-responsive recipe-img" src="img/salmon.jpg"></a>
+                    <div class="rating"><span>Rating:<br>8.1/10.0</span></div>
+
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#">Teriyaki Salmon</a></h4>
+                    </div>
+                </div>
+
+                <?php
+                foreach ($list1 as $list1) {
+                    echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
+                              <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1['image'] . '.jpg"></a>
+                              <div class="rating"><span>Rating:<br>' . $list1['rating_number'] . '/10.0</span></div>
 
                               <div class="card-body">
-                              <h4 class="card-title"><a href="#">'.$list1['food_name'].'</a> </h4>
+                              <h4 class="card-title"><a href="#">' . $list1['food_name'] . '</a> </h4>
                               </div>
                               </div>';
-                        
-                    }
+                }
                 ?>
             </div>
 
-            
-            <?php
-            for($i=0;$i<sizeof($list3);$i++){
-                echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-                              <a href="#"><img class="img-responsive recipe-img" src="img/'.$list3[$i]['food_category_image'].'.jpg"></a>
-                              <div class="card-body">
-                              <h4 class="card-title"><a href="#">'.$list3[$i]['food_category_name'].'</a> </h4>
-                              </div>
-                              </div>';
-            }
-            
-            ?>
+
+
             <!-- Filter Box -->
-            <div class="col-md-3 col-lg-3 col-sm-3 filter-box">
+            <div class="col-md-3 col-lg-3 col-sm-3 col-md-offset-1 filter-box">
                 <form action="searchResult.php" method="post">
                     <?php
-                        foreach ($list3 as $list3) {
-                            echo '<input type="radio" value="'.$list3['food_category_id'].'" name="style">'.$list3['food_category_name'].'<br>';
-                        }
+                    foreach ($list3 as $list3) {
+                        echo '<input type="radio" value="' . $list3['food_category_id'] . '" name="style">' . $list3['food_category_name'] . '<br>';
+                    }
                     ?>
                     <hr>
                     <?php
-                        foreach ($list4 as $list4) {
-                            echo '<input type="checkbox" value="'.$list4['food_type_id'].'" name=type[]">'.$list4['food_type_name'].'<br>';
-                        }
+                    foreach ($list4 as $list4) {
+                        echo '<input type="checkbox" value="' . $list4['food_type_id'] . '" name=type[]">' . $list4['food_type_name'] . '<br>';
+                    }
                     ?>
-                    
+
                     <input type="submit">
                 </form>
             </div>
         </div>
+
+        <div class="container">
+            <h2 class="">DISHES</h2>
+            <div class="col-sm-8 col-md-2 menu">
+                <a href="#"><img class="img-responsive recipe-img" src="img/salmon.jpg"></a>
+                <div class="rating"><span>Rating:<br>8.1/10.0</span></div>
+
+                <div class="card-body">
+                    <h4 class="card-title"><a href="#">Teriyaki Salmon</a></h4>
+                </div>
+            </div>
+
+            <?php
+//            foreach ($list3 as $list3) {
+//                echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
+//                              <a href="#"><img class="img-responsive recipe-img" src="img/' . $list3[$i]['food_category_image'] . '.jpg"></a>
+//                              <div class="card-body">
+//                              <h4 class="card-title"><a href="#">' . $list3[$i]['food_category_name'] . '</a> </h4>
+//                              </div>
+//                              </div>';
+//            }
+//            
+            ?>
+        </div>
+
     </body>
 
-    <footer class="footer navbar-fixed-bottom">
+    <footer class="footer">
         <p>UDP Group Project Created by: Jin, Kyle, Bin & Emil</p>
     </footer>
 </html>

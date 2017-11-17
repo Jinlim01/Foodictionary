@@ -93,6 +93,8 @@ and open the template in the editor.
     position: relative;
     max-width: none;
     width: calc(100% + 20px);
+    height: 300px !important;
+    object-fit: cover;
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
     -webkit-transform: translate3d(-10px,0,0);
@@ -129,4 +131,24 @@ and open the template in the editor.
 .filter-btn:hover span{
     color: #fff;
     transition-duration: 0.4s;
+}
+
+.footer{
+    position: absolute; 
+    width:100%;
+}
+
+@media only screen and (min-width: 1280px) {
+    .menu img {
+        height: 150px !important;
+    }
+    
+    .menu{
+        height: 200px;
+    }
+}
+
+.menu-title{
+     padding-left: 70px; 
+     padding-bottom: 20px;
 }
