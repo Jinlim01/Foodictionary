@@ -72,6 +72,18 @@ and open the template in the editor.
                 ?>
             </div>
 
+            
+            <?php
+            for($i=0;$i<sizeof($list3);$i++){
+                echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
+                              <a href="#"><img class="img-responsive recipe-img" src="img/'.$list3[$i]['food_category_image'].'.jpg"></a>
+                              <div class="card-body">
+                              <h4 class="card-title"><a href="#">'.$list3[$i]['food_category_name'].'</a> </h4>
+                              </div>
+                              </div>';
+            }
+            
+            ?>
             <!-- Filter Box -->
             <div class="col-md-3 col-lg-3 col-sm-3 filter-box">
                 <form action="searchResult.php" method="post">
