@@ -1,5 +1,4 @@
 .pic-container{
-    background-color: green;
     padding: 0px !important;
 
 }
@@ -12,7 +11,7 @@
 
 .recipe-name { 
    position: absolute; 
-   top: 200px; 
+   top: 300px; 
    left: 0; 
    width: 100%; 
 }
@@ -20,7 +19,6 @@
 .recipe-name span{ 
    color: white; 
    font: bold 24px/45px Helvetica, Sans-Serif; 
-   letter-spacing: -1px;  
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
    padding: 10px; 
