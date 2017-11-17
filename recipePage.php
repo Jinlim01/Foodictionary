@@ -46,7 +46,6 @@ and open the template in the editor.
 
         <div class="container comments-container">
             <h2 class="comments"><i class="fa fa-comments"></i>&nbsp; COMMENTS</h2>
-            
         </div>
     </body>
 </html>
