@@ -46,6 +46,19 @@ and open the template in the editor.
 
         <div class="container comments-container">
             <h2 class="comments"><i class="fa fa-comments"></i>&nbsp; COMMENTS</h2>
+            <details>
+                <summary>View more comments</summary>
+
+
+
+            </details>
+            <br>
+            <form method="post"role="form">
+                <div class="form-group">
+                    <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="write a comment..."></textarea>
+                </div>
+                <button type="button" id="comment_button" class="btn btn-primary comment-btn">Submit</button>
+            </form>
         </div>
     </body>
 </html>

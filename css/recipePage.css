@@ -1,3 +1,7 @@
+body{
+    background-color: #efefef;
+}
+
 .pic-container{
     padding: 0px !important;
 
@@ -18,9 +22,19 @@
 
 .recipe-name span{ 
    color: white; 
-   font: bold 24px/45px Helvetica, Sans-Serif; 
+   font: bold 30px/50px Helvetica, Sans-Serif; 
    background: rgb(0, 0, 0); /* fallback color */
    background: rgba(0, 0, 0, 0.7);
-   padding: 10px; 
+   padding: 10px;
+}
+
+.comment-btn{
+    background-color: #f05f40;
+    border-color: #f05f40;
+}
+
+.comment-btn:hover{
+    background-color: #eb3812;
+    border-color: #eb3812;
 }
 
