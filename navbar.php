@@ -17,32 +17,48 @@ and open the template in the editor.
 
     </head>
     <body id="page-top">
-        <nav class="navbar navbar-inverse navbar-static-top" role="navigation" style="background-color: #fff; border-bottom-color: #fff">
+        <nav class="navbar navbar-defualt navbar-static-top" role="navigation" style="background-color: #fff; border-bottom-color: #fff; margin-bottom: 0px !important;">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
                     <a class="navbar-brand" href="home.php" id="title">FOODICTIONARY</a>
-                </div> 
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right" id="title-right">
+                    <ul class="nav navbar-nav" id="login-reg">
                         <li class="option">
-                            <a href=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Guest</a>
+                            <a href=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</a>
+                        </li>
+                        <li class="option">
+                            <a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</a>
                         </li>
                     </ul>
-                </div>
-                <!-- /.navbar-collapse -->
+                </div> 
+
+                <form class="navbar-form navbar-right">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="submit">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form> 
             </div>
-            <!-- /.container -->
         </nav>
-        <?php
-        // put your code here
-        ?>
+
+        <nav class="navbar navbar-defualt navbar-static-top option-bar" role="navigation">
+            <div class="navbar-inner">
+                <ul class="nav navbar-nav" id="inner-option">
+                    <li class="inner">
+                        <a href="">Cook in 30 Minutes</a>
+                    </li>
+                    <li class="inner">
+                        <a href="">Pick A Meal</a>
+                    </li>
+                    <li class="inner">
+                        <a href="">Top Rated</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </body>
 </html>

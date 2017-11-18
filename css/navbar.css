@@ -8,25 +8,73 @@ and open the template in the editor.
     Author     : User
 */
 
-#title:hover{
-    color: #eb3812;
-    transition-duration: 0.4s;
-}
+#title{
+                color: #f05f40;
+            }
 
-.option a:hover{
-    color: #eb3812 !important;
-    transition-duration: 0.4s;
-}
+            .option{
+                float: left;
+            }
 
-.navbar-toggle{
-    background-color: #e60000;
-    border:none;
-}
+            .option a{
+                color: #f05f40;
+            }
 
-.navbar-toggle:hover{
-    background-color: red !important;
-}
+            .option a:hover{
+                color: #fff !important;
+                transition-duration: 0.4s;
+                background-color: #f05f40 !important;
+            }
 
-.navbar-toggle:focus{
-    background-color: #e60000 !important;
-}
+            .navbar-toggle{
+                background-color: #e60000;
+                border:none;
+            }
+
+            .navbar-toggle:hover{
+                background-color: red !important;
+            }
+
+            .navbar-toggle:focus{
+                background-color: #e60000 !important;
+            }
+
+            body{
+                background-color: #efefef;
+            }
+
+            .option-bar{
+                background-color: #f05f40;
+                width: 100% !important;
+            }
+
+            .navbar-inner{
+                padding-bottom: 0px !important;
+                margin: 0 auto;
+                text-align: center;
+            }
+
+            .inner{
+                font-weight: bold;
+                display:inline-block;
+                width: 200px;
+            }
+
+            .inner a{
+                color: #fff;
+                display:block;
+                text-align: center;
+            }
+
+            .inner a:hover{
+                color: #f05f40 !important;
+                transition-duration: 0.4s;
+                background-color: #fff !important;
+            }
+
+            #inner-option{
+                display:inline-block;
+                text-align: center;
+                float: none;
+                vertical-align: top;
+            }

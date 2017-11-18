@@ -7,37 +7,6 @@ and open the template in the editor.
     Created on : Nov 1, 2017, 3:52:48 PM
     Author     : User
 */
-.option-list{
-    font-weight: bold;
-    padding: 10px; 
-}
-
-.option-list a{
-    color: #fff;
-}
-
-.option-list:hover{
-    background-color: #fff;
-    color: #f05f40;
-    transition-duration: 0.4s;
-}
-
-.option-list:hover a{
-    color: #f05f40;
-    text-decoration: none;
-    transition-duration: 0.4s;
-}
-
-
-.option-bar{
-    background-color: #f05f40;  
-}
-
-.menu-list{
-    padding-left: 0px !important;
-    margin-top: 100px;
-}
-
 .menu{
     float: left;
     overflow: hidden;
@@ -46,7 +15,8 @@ and open the template in the editor.
     cursor: default;
     padding: 0px !important;
     margin-bottom: 50px;
-    background-color: #dee0e2;
+    margin-left: 50px;
+    background-color: #fff;
 }
 
 .rating{
@@ -110,45 +80,51 @@ and open the template in the editor.
     transform: translate3d(0,0,0);
 }
 
-.filter-box{
-    margin-top: 100px;
-    border-radius: 30px;
-    border-style: outset;
-    border-color: #cecece;
-    padding: 10px;
-}
-
-.filter-btn span{
-    color: #000;
-    font-family: cursive;
-}
-
-.filter-btn:hover{
-    background-color: #ff785b;
-    transition-duration: 0.4s;
-}
-
-.filter-btn:hover span{
-    color: #fff;
-    transition-duration: 0.4s;
-}
-
-.footer{
-    position: absolute; 
-    width:100%;
-}
-
 @media only screen and (min-width: 1280px) {
     .menu img {
         height: 150px !important;
     }
-    
+
     .menu{
         height: 200px;
     }
 }
 
-.menu-title{
-     padding-left: 70px; 
-     padding-bottom: 20px;
+.filter-box{
+    background-color: #fff;
+    border: 2px solid #f05f40;
+}
+
+.filter-form{
+    padding: 10px;
+}
+
+.filter-title{
+    font-weight: bold;
+}
+
+.filter-btn{
+    background-color: #f05f40;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 0px;
+    color: #fff;
+    border: 2px solid #f05f40;
+    font-weight: bold;
+}
+
+.filter-btn:hover{
+    color: #f05f40;
+    background-color: #fff;
+    transition-duration: 0.4s;
+}
+
+.dishes-container{
+    margin-top: 50px;
+    background-color: #fff;
+}
+
+.dishes-title{
+    border-bottom: 2px solid #cecece;
 }
