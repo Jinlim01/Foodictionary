@@ -21,21 +21,23 @@ $statement1->bindValue(":food_name", $name);
 $statement1->bindValue(":ingridiants", $ingredient);
 $statement1->bindValue(":instructions", $instructions);
 $statement1->bindValue(":food_category_id",$style);
-$statement1->bindValue(":recipe_id",18);
+$statement1->bindValue(":recipe_id",8);
 $statement1->execute();
 $statement1->closeCursor();
 
 $query2="DELETE FROM recipe_food_type WHERE recipe_id=:recipe_id";
 $statement2=$db->prepare($query2);
-$statement2->bindValue(":recipe_id",18);
+$statement2->bindValue(":recipe_id",8);
 $statement2->execute();
 $statement2->closeCursor();
 
 foreach($type as $type){
     $query3 ="INSERT INTO recipe_food_type (recipe_id,food_type_id) VALUES (:id , :type_id);";
     $statement3=$db->prepare($query3);
-    $statement3->bindValue(":id",18);
+    $statement3->bindValue(":id",8);
     $statement3->bindValue(":type_id",$type);
     $statement3->execute();
     $statement3->closeCursor();
 }
+
+header('location: homePage.php');
