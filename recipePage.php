@@ -31,6 +31,13 @@ and open the template in the editor.
             <img class="img-responsive img-test" <?php echo'src="img/'.$list1['image'].'"';?> alt=""/>
             <h1 class="recipe-name"><span><?php echo $list1['food_name'] ?>&nbsp;</span></h1>
         </div>
+        
+        <div class="container recipe-info">
+            
+            <a href=""><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Recipe</a>
+            <a href="editRecipePage.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit Recipe</a>
+            <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 8.1/10</h3>
+        </div>
 
         <div class="container ingredients-container">
             <h2 class="ingredients"><i class="fa fa-check-square-o"></i>&nbsp; INGREDIENTS</h2>
@@ -44,7 +51,7 @@ and open the template in the editor.
             <details>
                 <summary>Click to view steps</summary>
                 <ol>
-                    <?php echo $list1['instructions']; ?>
+                    <li><?php echo $list1['instructions']; ?></li>
                 </ol>
             </details>
         </div>
