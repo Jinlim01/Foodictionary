@@ -25,7 +25,7 @@ $(document).ready(function ()
         {
             isValid = false;
             errorM += "- Password is required!\n";
-        } else if (password.length < 8 && password !== "")
+        } else if (password.length < 6 && password !== "")
         {
             isValid = false;
             errorM += "- Password length is less than 8!\n";

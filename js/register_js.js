@@ -3,11 +3,12 @@ $(document).ready(function() {
     $("#register_button").click(function ()
     {
         var emailAddress = $("#email").val();
-        var username = $("#username").val();
-        var password1 = $("#password").val();
-        var password2 = $("#retyped_password").val();
+        var username = $("#user_name").val();
+        var password1 = $("#pass").val();
+        var password2 = $("#retyped_pass").val();
         var errorM = "";
        var isValid = true;
+       alert(pass+"\n"+retype_pass)
         if (username === "")
         {
             isValid = false;
@@ -19,7 +20,7 @@ $(document).ready(function() {
         }
 
         else
-        {  
+        {
             $("#username").next().text("");
         }
 
@@ -28,7 +29,7 @@ $(document).ready(function() {
         {
             isValid = false;
             errorM += "- Email address is required!\n";
-        } 
+        }
         else if (emailAddress !== "" && validateEmail(emailAddress) === false)
         {
             isValid = false;
@@ -43,12 +44,13 @@ $(document).ready(function() {
         {
             isValid = false;
             errorM += "- Password is required!\n";
-        } else if (password1.length < 6 && password1 !== "")
+        }
+        else if (password1.length < 6 && password1 !== "")
         {
             isValid = false;
             errorM += "- Password length is less than 6!\n";
 
-        } 
+        }
         else
         {
             $("#password1").next().text("");
@@ -60,16 +62,17 @@ $(document).ready(function() {
             isValid = false;
             errorM += "- Re-enter your password!\n";
         }
-        else if (password1 !== password2)
+        else if (password1 !== password2 && password2 !== "")
         {
             isValid = false;
-                        errorM += "- Passwords didn't match!\n";
+            errorM += "- Passwords didn't match!\n";
 
-        } else
+        }
+        else
         {
             $("#password2").next().text("");
         }
-       
+
         if (isValid)
         {
             $("#register-form").submit();

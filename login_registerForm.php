@@ -59,19 +59,19 @@ and open the template in the editor.
                     <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
                         <div class="form-group">
                             <label for="">Username</label>
-                            <input type="text" class="form-control" id="user_name" name="user_name" required=""> 
+                            <input type="text" class="form-control" id="user_name" name="user_name" required="">
                         </div>
                         <div class="form-group">
                             <label for="">Email Address</label>
                             <input type="email" class="form-control" id="email" name="email" placeholder="eg, abc@hotmail.com" required="">
-                        </div>	
+                        </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="at least 6 characters" required="">
+                            <input type="text" class="form-control" name="password" id="pass" placeholder="at least 6 characters" required="">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="password" class="form-control" id="retype_password" name="retype_password" placeholder="Please enter your password again" required="">
+                            <input type="text" class="form-control" id="retype_pass" name="retype_password" placeholder="Please enter your password again" required="">
                         </div>
                         <div>
                             <?php
