@@ -1,5 +1,16 @@
 <?php
-    require_once('filter.php');
+    require_once("database.php");
+
+    $searchWord = filter_input(INPUT_POST, "search", FILTER_SANITIZE_STRING);
+
+    $searchWord = "'%" . $searchWord . "%'";
+
+    $query1="SELECT * FROM recipe WHERE (food_name LIKE" . $searchWord. "or ingridiants LIKE" . $searchWord. " or instructions LIKE " . $searchWord. ");";
+    $statement1 =$db->prepare($query1);
+    $statement1->execute();
+    $search = $statement1->fetchAll();
+    $statement1->closeCursor();
+
     
     $query3 = "SELECT * FROM food_category";
     $statement3 = $db->prepare($query3);
@@ -57,13 +68,13 @@
                 <div class="col-sm-9 col-xs-12">
                     <h2 class="col-md-offset-1">Your Search Result:</h2>
                     <?php
-                    foreach($list as $list) {
+                    foreach($search as $search) {
                         echo
                         '<div class="col-sm-6 col-md-3 menu">
-                        <a href="#"><img class="img-responsive recipe-img" src="img/' . $list['image'] . '"></a>
-                        <a href="recipePage.php?id=' . $list['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list['rating_number'] . '/10.0</span></div></a>
+                        <a href="#"><img class="img-responsive recipe-img" src="img/' . $search['image'] . '"></a>
+                        <a href="recipePage.php?id=' . $search['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $search['rating_number'] . '/10.0</span></div></a>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="#">' . $list['food_name'] . '</a></h4>
+                            <h4 class="card-title"><a href="#">' . $search['food_name'] . '</a></h4>
                         </div>
                     </div>';
                     }

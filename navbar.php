@@ -1,3 +1,8 @@
+<?php 
+
+
+?>
+
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -24,21 +29,27 @@ and open the template in the editor.
                 <div class="navbar-header">
                     <a class="navbar-brand" href="homePage.php" id="title">FOODICTIONARY</a>
                     <ul class="nav navbar-nav" id="login-reg">
-                        <li class="option">
-                            <a href=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</a>
-                        </li>
-                        <li class="option">
-                            <a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</a>
-                        </li>
-                        <li class="option">
-                            <a href="addRecipePage.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Recipe</a>
-                        </li>
+                        <?php
+                            if(isset($_SESSION['user']) || isset($_SESSION['email'])){
+                                echo '<li class="option">
+                                      <a href="addRecipePage.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Recipe</a>
+                                      </li>';
+                            }else{
+                                echo '<li class="option">
+                                      <a href="login_registerForm.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</a>
+                                      </li>
+                                      <li class="option">
+                                      <a href="login_registerForm.php"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</a>
+                                       </li>';
+                            }
+                        
+                        ?>
                     </ul>
                 </div> 
 
-                <form class="navbar-form navbar-right">
+                <form method="post" action="searchBarResult.php" class="navbar-form navbar-right">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search">
+                        <input type="text" class="form-control" placeholder="Search" name="search" id="search">
                         <div class="input-group-btn">
                             <button class="btn btn-default" type="submit">
                                 <i class="glyphicon glyphicon-search"></i>

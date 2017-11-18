@@ -12,18 +12,12 @@ require_once("database.php");
 $searchWord = filter_input(INPUT_POST, "search", FILTER_SANITIZE_STRING);
 
 $searchWord = "'%" . $searchWord . "%'";
-echo $searchWord; 
 
 $query1="SELECT * FROM recipe WHERE (food_name LIKE" . $searchWord. "or ingridiants LIKE" . $searchWord. " or instructions LIKE " . $searchWord. ");";
 $statement1 =$db->prepare($query1);
 $statement1->execute();
-$list = $statement1->fetchAll();
+$search = $statement1->fetchAll();
 $statement1->closeCursor();
-
-
-echo $list[0]['food_name'];
-
-
 
 
 
