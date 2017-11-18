@@ -11,6 +11,7 @@ and open the template in the editor.
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
         <link href="css/navbar.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!--Font Awesome css-->
         <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
