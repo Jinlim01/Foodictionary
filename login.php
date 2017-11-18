@@ -26,17 +26,17 @@ if (isset($list1)) {
     if ($list1['password'] == $password) {
         $_SESSION['user'] = $list1['user_name'];
         $_SESSION['email'] = $list1['email_address'];
-        header('location:index.php');
+        header('location:homePage.php');
     } else {
         $_SESSION['error1'] = "Username/Email address or password is incorrect";
-        header('location: index.php');
+        header('location: login_registerForm.php');
     }
 } else {
     $_SESSION['error1'] = "Username/Email address or password is incorrect";
-    header('location: index.php');
+    header('location: login_registerForm.php');
 }}
 else
 {
     $_SESSION['error1'] = "Username should be 6 characters long";
-    header('location: index.php');
+    header('location: login_registerForm.php');
 }

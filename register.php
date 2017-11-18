@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -10,7 +10,7 @@ require_once 'database.php';
 
 
 
-$user_name = filter_input(INPUT_POST, "id", FILTER_SANITIZE_STRING);
+$user_name = filter_input(INPUT_POST, "user_name", FILTER_SANITIZE_STRING);
 $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_STRING);
 $retype_password = filter_input(INPUT_POST, "retype_password", FILTER_SANITIZE_STRING);
 $email = filter_input(INPUT_POST, "email", FILTER_SANITIZE_STRING);
@@ -26,7 +26,7 @@ $statement1->closeCursor();
 
 if (!empty($list1)) {
     $_SESSION['error2'] = 'Username has been taken';
-    header('location:index.php');
+    header('location:login_registerForm.php');
     exit();
 }
 
@@ -35,13 +35,13 @@ $var = filter_var($email, FILTER_VALIDATE_EMAIL);
 if( $var == FALSE)
 {
     $_SESSION['error2'] = "Invalid email format!";
-    header('location:index.php');
+    header('location:login_registerForm.php');
     exit();
 }
 
 if ($password != $retype_password) {
     $_SESSION['error2'] = "Passwords don't match";
-    header('location:index.php');
+    header('location:login_registerForm.php');
     exit();
 }
 
@@ -60,20 +60,20 @@ $length = strlen($password);
 
 if ($length < 6) {
     $_SESSION['error2'] = "Password must more than 6 characters";
-    header('location: index.php');
+    header('location: login_registerForm.php');
     exit();
 }
 
 
 if (!preg_match($p1, $password) || !preg_match($p2, $password) || !preg_match($p3, $password)) {
     $_SESSION['error2'] = "Password must have at least 1 uppercase,lowercase letter and at 1 number";
-    header('location: register.php');
+    header('location: login_registerForm.php');
     exit();
 }
 
 if (preg_match($p4, $password)) {
     $error_message = "Password cannot contain any of the following symbols : /!#$%^&*{}()<.>]/";
-    header('location: register.php');
+    header('location: login_registerForm.php');
     exit();
 }
 
@@ -86,7 +86,7 @@ $statement2->closeCursor();
 
 if (!empty($list2)) {
     $_SESSION['error2'] = 'Email address has been used';
-    header('location:index.php');
+    header('location:login_registerForm.php');
     exit();
 }
 
@@ -102,5 +102,5 @@ $statement->closeCursor();
 $_SESSION['user'] = $user_name ;
 $_SESSION['email'] = $email ; 
 
-header('location:index.php');
+header('location:homePage.php');
 

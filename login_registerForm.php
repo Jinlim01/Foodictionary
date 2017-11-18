@@ -58,7 +58,7 @@ and open the template in the editor.
                     <div class="col-md-4 col-sm-6 col-md-offset-2 col-sm-offset-3" id="register_form" name="register_form">
                         <div class="form-group">
                             <label for="">Username</label>
-                            <input type="text" class="form-control" id="username" name="id" required=""> 
+                            <input type="text" class="form-control" id="user_name" name="user_name" required=""> 
                         </div>
                         <div class="form-group">
                             <label for="">Email Address</label>
@@ -66,11 +66,11 @@ and open the template in the editor.
                         </div>	
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="" class="form-control" name="password" id="retype_password" placeholder="at least 6 characters" required="">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="at least 6 characters" required="">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="" class="form-control" id="" name="retype_password" placeholder="Please enter your password again" required="">
+                            <input type="password" class="form-control" id="retype_password" name="retype_password" placeholder="Please enter your password again" required="">
                         </div>
                         <div>
                             <?php
@@ -78,7 +78,7 @@ and open the template in the editor.
                                 echo "<label>" . $_SESSION['error2'] . "</label><br>";
                             }
                             ?>
-                            <button type="button" name="register" id="register_button" class="button submit">Submit</button>
+                            <button type="submit" name="register" id="register_button" class="button submit">Submit</button>
                         </div>
                     </div>
                 </form>
