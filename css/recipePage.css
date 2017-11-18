@@ -15,7 +15,7 @@ body{
 
 .recipe-name { 
    position: absolute; 
-   top: 300px; 
+   top: 450px; 
    left: 0; 
    width: 100%; 
 }
@@ -31,11 +31,13 @@ body{
 .comment-btn{
     background-color: #f05f40;
     border-color: #f05f40;
+    color: #fff;
 }
 
 .comment-btn:hover{
     background-color: #eb3812;
     border-color: #eb3812;
+    color: #fff;
 }
 
 .recipe-info{

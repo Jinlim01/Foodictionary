@@ -34,8 +34,10 @@ and open the template in the editor.
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?php include 'navbar.php';?>
+        
         <div class="container-fluid pic-container">
-            <img class="img-responsive img-test" <?php echo'src="img/'.$list1['image'].'"';?> alt=""/>
+            <img class="img-test" <?php echo'src="img/'.$list1['image'].'"';?> alt=""/>
             <h1 class="recipe-name"><span><?php echo $list1['food_name'] ?>&nbsp;</span></h1>
         </div>
         
@@ -82,7 +84,7 @@ and open the template in the editor.
                 <div class="form-group">
                     <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="write a comment..."></textarea>
                 </div>
-                <button type="button" id="comment_button" class="btn btn-primary comment-btn">Submit</button>
+                <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
             </form>
         </div>
     </body>

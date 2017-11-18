@@ -1,19 +1,18 @@
 <?php
-    require_once('filter.php');
-    
-    $query3 = "SELECT * FROM food_category";
-    $statement3 = $db->prepare($query3);
-    $statement3->execute();
-    $list3 = $statement3->fetchAll();
-    $statement3->closeCursor();
+require_once('filter.php');
+
+$query3 = "SELECT * FROM food_category";
+$statement3 = $db->prepare($query3);
+$statement3->execute();
+$list3 = $statement3->fetchAll();
+$statement3->closeCursor();
 
 
-    $query4 = "SELECT * FROM food_type";
-    $statement4 = $db->prepare($query4);
-    $statement4->execute();
-    $list4 = $statement4->fetchAll();
-    $statement4->closeCursor();
-
+$query4 = "SELECT * FROM food_type";
+$statement4 = $db->prepare($query4);
+$statement4->execute();
+$list4 = $statement4->fetchAll();
+$statement4->closeCursor();
 ?>
 <html>
     <head>
@@ -31,7 +30,7 @@
     <body>
         <?php include 'navbar.php' ?>
 
-        <div class="container-fluid">
+        <div class="container-fluid"  style="background-color: #efefef;">
             <div class="row">
                 <!-- Filter Box -->
                 <div class="col-sm-12 col-md-2 col-xs-12 col-md-offset-1 filter-box">
@@ -57,7 +56,7 @@
                 <div class="col-sm-9 col-xs-12">
                     <h2 class="col-md-offset-1">Your Search Result:</h2>
                     <?php
-                    foreach($list as $list) {
+                    foreach ($list as $list) {
                         echo
                         '<div class="col-sm-6 col-md-3 menu">
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $list['image'] . '"></a>
@@ -72,6 +71,7 @@
 
 
             </div>
+        </div>
     </body>
 </html>
 
