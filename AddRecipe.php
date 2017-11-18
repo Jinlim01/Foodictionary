@@ -14,6 +14,12 @@ $instructions = filter_input(INPUT_POST, "instructions", FILTER_SANITIZE_STRING)
 $type = $_POST['type'];
 $style = filter_input(INPUT_POST,'style',FILTER_SANITIZE_STRING);
 
+$query = "SELECT * FROM user where email_address = :email_address";
+$statement = $db->prepare($query);
+$statement->bindValue(":email_address", $_SESSION['email']);
+$statement->execute();
+$list = $statement->fetch();
+$statement->closeCursor();
 
 $target_dir = "../img/";
 $target_name = basename($_FILES["picture"]["name"]);
@@ -26,7 +32,7 @@ $statement1 = $db->prepare($query1);
 $statement1->bindValue(":food_name", $name);
 $statement1->bindValue(":ingridiants", $ingredient);
 $statement1->bindValue(":instructions", $instructions);
-$statement1->bindValue(":user_id",7);
+$statement1->bindValue(":user_id",$list['user_id']);
 $statement1->bindValue(":food_category_id",$style);
 $statement1->bindValue(":image",$target_name);
 $statement1->execute();

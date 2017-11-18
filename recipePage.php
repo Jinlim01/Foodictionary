@@ -8,6 +8,13 @@
     $statement1->execute();
     $list1 = $statement1->fetch();
     $statement1->closeCursor();
+    
+    $query2 = "SELECT * FROM user where user_id = :user_id";
+    $statement2 = $db->prepare($query2);
+    $statement2->bindValue(":user_id", $list1['user_id']);
+    $statement2->execute();
+    $list2 = $statement2->fetch();
+    $statement2->closeCursor();
 ?>
 <!DOCTYPE html>
 <!--
@@ -33,9 +40,15 @@ and open the template in the editor.
         </div>
         
         <div class="container recipe-info">
+            <?php
+            if(isset($_SESSION['email'])){
+                if($_SESSION['email']==$list2['email_address']){
+                    echo '<a href="DeleteRecipe.php?id='. $list1['recipe_id'] .'"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Recipe</a>
+                          <a href="editRecipePage.php?id='.$list1['recipe_id'].'"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit Recipe</a>';
+                }
+            }
+            ?>
             
-            <a href="DeleteRecipe.php?id=<?php echo $list1['recipe_id'] ?>"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Recipe</a>
-            <a href="editRecipePage.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit Recipe</a>
             <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?>/10</h3>
         </div>
 

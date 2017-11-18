@@ -1,7 +1,7 @@
 <?php 
 require_once('database.php');
 
-$id = 8;
+$id = $_GET['id'];
 
 $query1 = "SELECT * FROM recipe WHERE recipe_id = :id";
 $statement1 = $db->prepare($query1);
