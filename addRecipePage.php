@@ -27,9 +27,8 @@ and open the template in the editor.
 
         <style>
             .addRecipeForm{
-                background-color: #fff;
+                background-color: #efefef;
                 padding: 20px;
-                border-radius: 50px;
             }
 
             .add-btn{

@@ -35,11 +35,10 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <title>Edit Recipe</title>
 
-        <style>
+        <style>  
             .addRecipeForm{
-                background-color: #fff;
+                background-color: #efefef;
                 padding: 20px;
-                border-radius: 50px;
             }
 
             .add-btn{
