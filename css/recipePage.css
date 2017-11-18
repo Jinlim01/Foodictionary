@@ -38,3 +38,22 @@ body{
     border-color: #eb3812;
 }
 
+.recipe-info{
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.recipe-info a{
+    background-color: #cecece;
+    padding: 10px;
+    margin-left: 10px;
+    float: right;
+    color: #f05f40;
+    text-decoration: none;
+}
+
+.recipe-info a:hover{
+    background-color: #f05f40;
+    transition-duration: 0.4s;
+    color: #fff;
+}
