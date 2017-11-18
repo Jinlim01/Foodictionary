@@ -63,7 +63,7 @@ require_once('filter.php');
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $list['image'] . '"></a>
                         <a href="recipePage.php?id=' . $list['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list['rating_number'] . '/10.0</span></div></a>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="#">' . $list['food_name '] . '</a></h4>
+                            <h4 class="card-title"><a href="#">' . $list['food_name'] . '</a></h4>
                         </div>
                     </div>';
                     }
