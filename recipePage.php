@@ -35,7 +35,7 @@ and open the template in the editor.
         <div class="container recipe-info">
             
             <a href="editRecipePage.php"><i class="fa fa-trash" aria-hidden="true"></i>&nbsp; Delete Recipe</a>
-            <a href="editRecipePage.php"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit Recipe</a>
+            <a href=""><i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp; Edit Recipe</a>
             <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; 8.1/10</h3>
         </div>
 
