@@ -21,7 +21,7 @@ and open the template in the editor.
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="home.php" id="title">FOODICTIONARY</a>
+                    <a class="navbar-brand" href="homePage.php" id="title">FOODICTIONARY</a>
                     <ul class="nav navbar-nav" id="login-reg">
                         <li class="option">
                             <a href=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;Login</a>

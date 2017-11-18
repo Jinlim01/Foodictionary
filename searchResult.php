@@ -71,7 +71,7 @@
                 if(!empty($list)){
                     foreach($list as $list){
                         echo '<div class="col-lg-3 col-md-3 col-sm-8 col-md-offset-1 col-sm-offset-2 col-lg-offset-1 menu">
-                              <a href="#"><img class="img-responsive recipe-img" src="img/'.$list['image'].'.jpg"></a>
+                              <a href="#"><img class="img-responsive recipe-img" src="img/'.$list['image'].'"></a>
                               <a href="recipePage.php?id='.$list['recipe_id'].'"><div class="rating"><span>Rating:<br>'.$list['rating_number'].'/10.0</span></div></a>
 
                               <div class="card-body">

@@ -10,6 +10,9 @@ require_once('database.php');
 
 
 $style = filter_input(INPUT_POST, 'style', FILTER_SANITIZE_STRING);
+if(!isset($style)){
+    $style = $_GET['style'];
+}
 
 if(isset($_POST['type'])){
     $type=$_POST['type'];
