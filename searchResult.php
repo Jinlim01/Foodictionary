@@ -1,33 +1,19 @@
 <?php
-//    require_once('bin/filter.php');
-//   
-//    $query3 = "SELECT * FROM food_category";
-//    $statement3 = $db->prepare($query3);
-//    $statement3->execute();
-//    $list3 = $statement3->fetchAll();
-//    $statement3->closeCursor();
-//
-//
-//    $query4 = "SELECT * FROM food_type";
-//    $statement4 = $db->prepare($query4);
-//    $statement4->execute();
-//    $list4 = $statement4->fetchAll();
-//    $statement4->closeCursor();
-
-require_once('homepage_data.php');
-
-$query3 = "SELECT * FROM food_category";
-$statement3 = $db->prepare($query3);
-$statement3->execute();
-$list3 = $statement3->fetchAll();
-$statement3->closeCursor();
+require_once('filter.php');
+   
+    $query3 = "SELECT * FROM food_category";
+    $statement3 = $db->prepare($query3);
+    $statement3->execute();
+    $list3 = $statement3->fetchAll();
+    $statement3->closeCursor();
 
 
-$query4 = "SELECT * FROM food_type";
-$statement4 = $db->prepare($query4);
-$statement4->execute();
-$list4 = $statement4->fetchAll();
-$statement4->closeCursor();
+    $query4 = "SELECT * FROM food_type";
+    $statement4 = $db->prepare($query4);
+    $statement4->execute();
+    $list4 = $statement4->fetchAll();
+    $statement4->closeCursor();
+
 ?>
 <html>
     <head>
@@ -71,13 +57,13 @@ $statement4->closeCursor();
                 <div class="col-sm-9 col-xs-12">
                     <h2 class="col-md-offset-1">Your Search Result:</h2>
                     <?php
-                    for ($i = 0; $i < sizeof($list3); $i++) {
+                    foreach($list as $list) {
                         echo
                         '<div class="col-sm-6 col-md-3 menu">
-                        <a href="#"><img class="img-responsive recipe-img" src="img/' . $list3[$i]['food_category_image'] . '"></a>
-                        <a href="searchResult.php?style=' . $list3[$i]['food_category_id'] . '"><div class="rating"></div></a>
+                        <a href="#"><img class="img-responsive recipe-img" src="img/' . $list['image'] . '"></a>
+                        <a href="recipePage.php?id=' . $list['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list['rating_number'] . '/10.0</span></div></a>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="#">' . $list3[$i]['food_category_name'] . '</a></h4>
+                            <h4 class="card-title"><a href="#">' . $list['food_name '] . '</a></h4>
                         </div>
                     </div>';
                     }
