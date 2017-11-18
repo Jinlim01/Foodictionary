@@ -49,4 +49,6 @@ foreach($type as $type){
     $statement3->closeCursor();
 }
 
-echo "success";
+
+
+header('location: homePage.php');
