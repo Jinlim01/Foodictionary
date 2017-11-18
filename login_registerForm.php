@@ -30,6 +30,7 @@ and open the template in the editor.
         <script src="js/login_js.js" type="text/javascript"></script>
     </head>
     <body>
+        <?php include 'navbar.php'?>
         <section>
             <div class="container">
                 <form id="login-form" action="login.php" method="post">
