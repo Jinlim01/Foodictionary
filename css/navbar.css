@@ -9,72 +9,74 @@ and open the template in the editor.
 */
 
 #title{
-                color: #f05f40;
-            }
+    color: #f05f40;
+}
 
-            .option{
-                float: left;
-            }
+.option{
+    float: left;
+}
 
-            .option a{
-                color: #f05f40;
-            }
+.option a{
+    color: #f05f40;
+}
 
-            .option a:hover{
-                color: #fff !important;
-                transition-duration: 0.4s;
-                background-color: #f05f40 !important;
-            }
+.option a:hover{
+    color: #fff !important;
+    transition-duration: 0.4s;
+    background-color: #f05f40 !important;
+}
 
-            .navbar-toggle{
-                background-color: #e60000;
-                border:none;
-            }
+.navbar-toggle{
+    background-color: #e60000;
+    border:none;
+}
 
-            .navbar-toggle:hover{
-                background-color: red !important;
-            }
+.navbar-toggle:hover{
+    background-color: red !important;
+}
 
-            .navbar-toggle:focus{
-                background-color: #e60000 !important;
-            }
+.navbar-toggle:focus{
+    background-color: #e60000 !important;
+}
 
-            body{
-                background-color: #efefef;
-            }
+body{
+    background-color: #efefef;
+}
 
-            .option-bar{
-                background-color: #f05f40;
-                width: 100% !important;
-            }
+.option-bar{
+    background-color: #f05f40;
+    width: 100% !important;
+    margin-bottom: 0px !important;
+}
 
-            .navbar-inner{
-                padding-bottom: 0px !important;
-                margin: 0 auto;
-                text-align: center;
-            }
+.navbar-inner{
+    padding-bottom: 0px !important;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 0px !important;
+}
 
-            .inner{
-                font-weight: bold;
-                display:inline-block;
-                width: 200px;
-            }
+.inner{
+    font-weight: bold;
+    display:inline-block;
+    width: 200px;
+}
 
-            .inner a{
-                color: #fff;
-                display:block;
-                text-align: center;
-            }
+.inner a{
+    color: #fff;
+    display:block;
+    text-align: center;
+}
 
-            .inner a:hover{
-                color: #f05f40 !important;
-                transition-duration: 0.4s;
-                background-color: #fff !important;
-            }
+.inner a:hover{
+    color: #f05f40 !important;
+    transition-duration: 0.4s;
+    background-color: #fff !important;
+}
 
-            #inner-option{
-                display:inline-block;
-                text-align: center;
-                float: none;
-                vertical-align: top;
-            }
+#inner-option{
+    display:inline-block;
+    text-align: center;
+    float: none;
+    vertical-align: top;
+}

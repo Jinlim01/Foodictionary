@@ -22,7 +22,7 @@ and open the template in the editor.
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 
     </head>
-    <body id="page-top">
+    <body>
         <nav class="navbar navbar-defualt navbar-static-top" role="navigation" style="background-color: #fff; border-bottom-color: #fff; margin-bottom: 0px !important;">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
@@ -32,14 +32,14 @@ and open the template in the editor.
                         <?php
                             if(isset($_SESSION['user']) || isset($_SESSION['email'])){
                                 echo '<li class="option">
-                                      &nbsp;&nbsp;Hi, '.$_SESSION['user'].'
+                                      <a href="addRecipePage.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;'.$_SESSION['user'].'</a>'.'
                                       </li>';
                                 
                                 echo '<li class="option">
                                       <a href="addRecipePage.php"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Recipe</a>
                                       </li>';
                                 echo '<li class="option">
-                                      <a href="logOut.php">&nbsp;&nbsp;Log Out</a>
+                                      <a href="logOut.php"><i class="fa fa-sign-out" aria-hidden="true"></i>&nbsp;&nbsp;Log Out</a>
                                       </li>';
                             }else{
                                 echo '<li class="option">

@@ -36,7 +36,7 @@ and open the template in the editor.
                 <form id="login-form" action="login.php" method="post">
                     <div class="col-md-4 col-sm-6 col-md-offset-1 col-sm-offset-3 form-line"  id="login_form" name="login_form">
                         <div class="form-group">
-                            <label for="">Username or Email</label>
+                            <label for="">Email</label>
                             <input type="text" class="form-control" id="username" name="id" required="">
                         </div>
                         <div class="form-group">

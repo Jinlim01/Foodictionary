@@ -34,7 +34,7 @@ and open the template in the editor.
     <body>
         <?php include 'navbar.php';?>
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color: #efefef;">
             <div class="row">
                 <!-- Filter Box -->
                 <div class="col-sm-12 col-md-2 col-xs-12 col-md-offset-1 filter-box">
@@ -70,17 +70,6 @@ and open the template in the editor.
                         </div>
                     </div>';}   
                     ?>
-                    <?php
-//                    for ($i = 0; $i < sizeof($list3); $i++) {
-//                        echo '<div class="col-sm-8 col-md-3 col-sm-offset-1 menu">
-//                                <a href="#"><img class="img-responsive recipe-img" src="img/' . $list3[$i]['food_category_image'] . '"></a>
-//                                <a href="recipePage.php?id=' . $list1[$i]['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list1[$i]['rating_number'] . '/10.0</span></div></a>
-//                                <div class="card-body">
-//                                    <h4 class="card-title"><a href="#">' . $list3[$i]['food_category_name'] . '</a></h4>
-//                                </div>
-//                                </div>';
-//                    }
-                    ?>
                 </div>
 
 
@@ -115,33 +104,6 @@ and open the template in the editor.
                         }
                     }
                      ?>
-                    <?php
-//                    $length = sizeof($list1);
-//                    if ($length < 6) {
-//                        for ($i = 0; $i < $length; $i++) {
-//                            echo ' <div class="col-sm-8 col-md-2 menu">
-//                    <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1[$i]['image'] . '"></a>
-//                    <a href="recipePage.php?id=' . $list1[$i]['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list1[$i]['rating_number'] . '/10.0</span></div></a>
-//
-//                    <div class="card-body">
-//                        <h4 class="card-title"><a href="#">' . $list1[$i]['food_name'] . '</a></h4>
-//                    </div>
-//                </div>'
-//                            ;
-//                        }
-//                    } else {
-//                        for ($i = ($length - 1); $i > ($length - 7); $i--) {
-//                            echo ' <div class="col-sm-8 col-md-2 menu">
-//                    <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1[$i]['image'] . '"></a>
-//                    <a href="recipePage.php?id=' . $list1[$i]['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list1[$i]['rating_number'] . '/10.0</span></div></a>
-//
-//                    <div class="card-body">
-//                        <h4 class="card-title"><a href="#">' . $list1[$i]['food_name'] . '</a></h4>
-//                    </div>
-//                </div>';
-//                        }
-//                    }
-                    ?>
                 </div>
             </div>
         </div>

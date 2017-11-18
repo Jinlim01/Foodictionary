@@ -7,6 +7,10 @@ and open the template in the editor.
     Created on : Nov 1, 2017, 3:52:48 PM
     Author     : User
 */
+body{
+    background-color: #efefef;
+}
+
 .menu{
     float: left;
     overflow: hidden;
@@ -93,6 +97,7 @@ and open the template in the editor.
 .filter-box{
     background-color: #fff;
     border: 2px solid #f05f40;
+    margin-top: 30px;
 }
 
 .filter-form{
