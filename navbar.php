@@ -29,6 +29,9 @@ and open the template in the editor.
                         <li class="option">
                             <a href=""><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;&nbsp;Sign Up</a>
                         </li>
+                        <li class="option">
+                            <a href=""><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;&nbsp;Add Recipe</a>
+                        </li>
                     </ul>
                 </div> 
 
