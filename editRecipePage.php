@@ -64,7 +64,7 @@ and open the template in the editor.
 
         <div class="container">
             <h2>Edit Recipe</h2>
-            <form class="form-horizontal addRecipeForm" action="updateRecipe.php" method="post">
+            <form class="form-horizontal addRecipeForm" action="updateRecipe.php?id=<?php echo $id; ?>" method="post">
                 <div class="form-group">
                     <label class="control-label col-sm-2">Name</label>
                     <div class="col-sm-10">
