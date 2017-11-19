@@ -32,7 +32,7 @@ and open the template in the editor.
                         <?php
                             if(isset($_SESSION['user']) || isset($_SESSION['email'])){
                                 echo '<li class="option">
-                                      <a href="addRecipePage.php"><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;'.$_SESSION['user'].'</a>'.'
+                                      <a href=""><i class="fa fa-user" aria-hidden="true"></i>&nbsp;&nbsp;'.$_SESSION['user'].'</a>'.'
                                       </li>';
                                 
                                 echo '<li class="option">
