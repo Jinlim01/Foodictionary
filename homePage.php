@@ -79,7 +79,7 @@ and open the template in the editor.
                     <h2 class="dishes-title">DISHES</h2>
                     <?php
                     $length = sizeof($list1);
-                    if ($length < 4) {
+                    if ($length < 16) {
                         for ($i = 0; $i < $length; $i++) {
                     
                     echo 
@@ -91,7 +91,7 @@ and open the template in the editor.
                             <h4 class="card-title"><a href="#">' . $list1[$i]['food_name'] . '</a></h4>
                         </div>
                     </div>';}}else{
-                        for ($i = ($length - 1); $i > ($length - 5); $i--) {
+                        for ($i = ($length - 1); $i > ($length - 17); $i--) {
                              echo 
                     '<div class="col-sm-8 col-md-2 col-md-offset-1 menu" style="background-color: #cecece;">
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1[$i]['image'] . '"></a>
