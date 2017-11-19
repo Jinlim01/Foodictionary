@@ -9,26 +9,39 @@
 require_once('database.php');
 
 
-$style = filter_input(INPUT_POST, 'style', FILTER_SANITIZE_STRING);
-if(!isset($style)){
-    $style = $_GET['style'];
+set_error_handler('exceptions_error_handler');
+
+function exceptions_error_handler($severity, $message, $filename, $lineno) {
+    if (error_reporting() == 0) {
+        return;
+    }
+    if (error_reporting() & $severity) {
+        throw new ErrorException($message, 0, $severity, $filename, $lineno);
+    }
 }
 
-if(isset($_POST['type'])){
-    $type=$_POST['type'];
+try {
+    $style = filter_input(INPUT_POST, 'style', FILTER_SANITIZE_STRING);
+    if (!isset($style)) {
+        $style = $_GET['style'];
+    }
+} catch (Exception $e) {
+    
+}
+
+
+if (isset($_POST['type'])) {
+    $type = $_POST['type'];
     $query = "SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id ";
     if (isset($style)) {
         $query = $query . "AND recipe.food_category_id = " . $style;
     }
-}else{
+} else {
     if (isset($style)) {
         $query = "SELECT * from recipe WHERE ";
         $query = $query . "recipe.food_category_id = " . $style;
     }
 }
-
-
-
 
 if (isset($type)) {
     foreach ($type as $type) {
@@ -41,6 +54,5 @@ $statement1 = $db->prepare($query);
 $statement1->execute();
 $list = $statement1->fetchAll();
 $statement1->closeCursor();
-
 
 //SELECT * from recipe JOIN recipe_food_type WHERE recipe.recipe_id = recipe_food_type.recipe_id AND recipe_food_type.food_type_id = 7 AND recipe.food_category_id = 1
