@@ -67,11 +67,11 @@ and open the template in the editor.
                         </div>
                         <div class="form-group">
                             <label for="">Password</label>
-                            <input type="text" class="form-control" name="password" id="pass" placeholder="at least 6 characters" required="">
+                            <input type="password" class="form-control" name="password" id="pass" placeholder="at least 6 characters" required="">
                         </div>
                         <div class="form-group">
                             <label for="">Confirm Password</label>
-                            <input type="text" class="form-control" id="retype_pass" name="retype_password" placeholder="Please enter your password again" required="">
+                            <input type="password" class="form-control" id="retyped_pass" name="retype_password" placeholder="Please enter your password again" required="">
                         </div>
                         <div>
                             <?php
@@ -79,7 +79,7 @@ and open the template in the editor.
                                 echo "<label>" . $_SESSION['error2'] . "</label><br>";
                             }
                             ?>
-                            <button type="submit" name="register" id="register_button" class="button submit">Submit</button>
+                            <button type="button" name="register" id="register_button" class="button submit">Submit</button>
                         </div>
                     </div>
                 </form>

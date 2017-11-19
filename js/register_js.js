@@ -7,8 +7,7 @@ $(document).ready(function() {
         var password1 = $("#pass").val();
         var password2 = $("#retyped_pass").val();
         var errorM = "";
-       var isValid = true;
-       alert(pass+"\n"+retype_pass)
+        var isValid = true;
         if (username === "")
         {
             isValid = false;
@@ -62,15 +61,17 @@ $(document).ready(function() {
             isValid = false;
             errorM += "- Re-enter your password!\n";
         }
-        else if (password1 !== password2 && password2 !== "")
+        
+        else
+        {
+            $("#password2").next().text("");
+        }
+        
+        if (password2 !== "" && password1 !== "" && password1 !== password2)
         {
             isValid = false;
             errorM += "- Passwords didn't match!\n";
 
-        }
-        else
-        {
-            $("#password2").next().text("");
         }
 
         if (isValid)
