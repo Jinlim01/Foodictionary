@@ -21,11 +21,12 @@ $statement->execute();
 $list = $statement->fetch();
 $statement->closeCursor();
 
-$target_dir = "../img/";
+$target_dir = "img/";
 $target_name = basename($_FILES["picture"]["name"]);
 $target_file = $target_dir . basename($_FILES["picture"]["name"]);
 $imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 move_uploaded_file($_FILES["picture"]["tmp_name"], $target_file);
+
 
 $query1 = "INSERT INTO recipe (food_name,ingridiants,instructions,user_id,food_category_id,image) VALUES (:food_name,:ingridiants,:instructions,:user_id,:food_category_id,:image);";
 $statement1 = $db->prepare($query1);
