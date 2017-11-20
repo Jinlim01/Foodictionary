@@ -30,18 +30,6 @@ and open the template in the editor.
     text-shadow: 2px 2px 4px #000;
 }
 
-footer{
-    background-color: #ff785b;
-}
-
-footer p{
-    color: #fff;
-    font-weight: bold;
-    font-size: 10px;
-    text-align: center;
-    padding: 10px;
-}
-
 .col-sm-6{
     margin-top: 40px;
 }

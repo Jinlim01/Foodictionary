@@ -32,7 +32,7 @@ and open the template in the editor.
         <link href="css/homePage.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?php include 'navbar.php';?>
+        <?php include 'navbar.php'; ?>
 
         <div class="container-fluid" style="background-color: #efefef;">
             <div class="row">
@@ -42,7 +42,7 @@ and open the template in the editor.
                         <span class="filter-title">Categories</span><br><br>
                         <?php
                         for ($i = 0; $i < sizeof($list3); $i++) {
-                        echo '<input type="radio" value="' . $list3[$i]['food_category_id'] . '" name="style">' . $list3[$i]['food_category_name'] . '<br>';
+                            echo '<input type="radio" value="' . $list3[$i]['food_category_id'] . '" name="style">' . $list3[$i]['food_category_name'] . '<br>';
                         }
                         ?>
                         <hr style="background-color: #f05f40; height: 1px;">
@@ -59,16 +59,17 @@ and open the template in the editor.
 
                 <div class="col-sm-9 col-xs-12">
                     <h2 class="col-md-offset-1">CATEGORY</h2>
-                    <?php 
+                    <?php
                     for ($i = 0; $i < sizeof($list3); $i++) {
-                    echo 
-                    '<div class="col-sm-6 col-md-3 menu">
+                        echo
+                        '<div class="col-sm-6 col-md-3 menu">
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $list3[$i]['food_category_image'] . '"></a>
-                        <a href="searchResult.php?style='.$list3[$i]['food_category_id'].'"><div class="rating"></div></a>
+                        <a href="searchResult.php?style=' . $list3[$i]['food_category_id'] . '"><div class="rating"></div></a>
                         <div class="card-body">
-                            <h4 class="card-title"><a href="#">'.$list3[$i]['food_category_name'].'</a></h4>
+                            <h4 class="card-title"><a href="#">' . $list3[$i]['food_category_name'] . '</a></h4>
                         </div>
-                    </div>';}   
+                    </div>';
+                    }
                     ?>
                 </div>
 
@@ -81,19 +82,21 @@ and open the template in the editor.
                     $length = sizeof($list1);
                     if ($length < 16) {
                         for ($i = 0; $i < $length; $i++) {
-                    
-                    echo 
-                    '<div class="col-sm-8 col-md-2 col-md-offset-1 menu" style="background-color: #cecece;">
+
+                            echo
+                            '<div class="col-sm-8 col-md-2 col-md-offset-1 menu" style="background-color: #cecece;">
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1[$i]['image'] . '"></a>
                         <a href="recipePage.php?id=' . $list1[$i]['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list1[$i]['rating_number'] . '/10.0</span></div></a>
 
                         <div class="card-body">
                             <h4 class="card-title"><a href="#">' . $list1[$i]['food_name'] . '</a></h4>
                         </div>
-                    </div>';}}else{
+                    </div>';
+                        }
+                    } else {
                         for ($i = ($length - 1); $i > ($length - 17); $i--) {
-                             echo 
-                    '<div class="col-sm-8 col-md-2 col-md-offset-1 menu" style="background-color: #cecece;">
+                            echo
+                            '<div class="col-sm-8 col-md-2 col-md-offset-1 menu" style="background-color: #cecece;">
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $list1[$i]['image'] . '"></a>
                         <a href="recipePage.php?id=' . $list1[$i]['recipe_id'] . '"><div class="rating"><span>Rating:<br>' . $list1[$i]['rating_number'] . '/10.0</span></div></a>
 
@@ -103,10 +106,13 @@ and open the template in the editor.
                     </div>';
                         }
                     }
-                     ?>
+                    ?>
                 </div>
             </div>
+            <br>
         </div>
-</body>
+
+        <?php include 'footer.php';?>
+    </body>
 </html>
 

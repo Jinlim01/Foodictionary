@@ -87,5 +87,7 @@ and open the template in the editor.
                 <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
             </form>
         </div>
+        <br>
+        <?php include 'footer.php';?>
     </body>
 </html>
