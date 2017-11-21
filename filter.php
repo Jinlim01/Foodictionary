@@ -44,9 +44,16 @@ if (isset($_POST['type'])) {
 }
 
 if (isset($type)) {
-    foreach ($type as $type) {
-        $query = $query . " AND recipe_food_type.food_type_id= " . $type;
+    $query = $query . " AND recipe_food_type.food_type_id IN ( ";
+    for($i = 0; $i<sizeof($type);$i++)
+    {
+        $query = $query . $type[$i];
+        if($i != sizeof($type-1)
+           {
+                $query = $query.",";
+           }
     }
+    $query = $query . ") GROUP BY recipe.recipe_id HAVING COUNT(DISTINCT recipe_food_type.food_type_id) = ".sizeof($type);
 }
 
 
