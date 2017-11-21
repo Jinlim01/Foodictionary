@@ -48,14 +48,13 @@ if (isset($type)) {
     for($i = 0; $i<sizeof($type);$i++)
     {
         $query = $query . $type[$i];
-        if($i != sizeof($type-1)
+        if($i != sizeof($type)-1)
            {
                 $query = $query.",";
            }
     }
     $query = $query . ") GROUP BY recipe.recipe_id HAVING COUNT(DISTINCT recipe_food_type.food_type_id) = ".sizeof($type);
 }
-
 
 $statement1 = $db->prepare($query);
 $statement1->execute();
