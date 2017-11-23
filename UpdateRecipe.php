@@ -16,9 +16,8 @@ $instructions = filter_input(INPUT_POST, "instructions", FILTER_SANITIZE_STRING)
 $type = $_POST['type'];
 $style = filter_input(INPUT_POST, 'style', FILTER_SANITIZE_STRING);
 
-
-
-
+$ingredient = str_replace("\n", "<br>", $ingredient);
+$instructions = str_replace("\n", "<br>", $instructions);
 
 $query1 = "UPDATE recipe SET food_name= :food_name, ingridiants= :ingridiants, instructions= :instructions, food_category_id = :food_category_id  WHERE recipe_id = :recipe_id;";
 $statement1 = $db->prepare($query1);

@@ -65,8 +65,14 @@ and open the template in the editor.
             <h2 class="steps"><i class="fa fa-book"></i>&nbsp; STEPS</h2>
             <details>
                 <summary>Click to view steps</summary>
-                <ol>
-                    <li><?php echo $list1['instructions']; ?></li>
+                <ol style="list-style-type: none;">
+                    <?php
+                        $instruction = $list1['instructions'];
+                        $steps= explode("<br>",$instruction);
+                        foreach($steps as $steps){
+                            echo $steps."<br>";
+                        }
+                   ?>
                 </ol>
             </details>
         </div>

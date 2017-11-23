@@ -14,6 +14,10 @@ $instructions = filter_input(INPUT_POST, "instructions", FILTER_SANITIZE_STRING)
 $type = $_POST['type'];
 $style = filter_input(INPUT_POST,'style',FILTER_SANITIZE_STRING);
 
+$ingredient = str_replace("\n", "<br>", $ingredient);
+$instructions = str_replace("\n", "<br>", $instructions);
+
+
 $query = "SELECT * FROM user where email_address = :email_address";
 $statement = $db->prepare($query);
 $statement->bindValue(":email_address", $_SESSION['email']);
