@@ -68,12 +68,12 @@ and open the template in the editor.
                 <summary>Click to view steps</summary>
                 <ol style="list-style-type: none;">
                     <?php
-                        $instruction = $list1['instructions'];
-                        $steps= explode("<br>",$instruction);
-                        foreach($steps as $steps){
-                            echo $steps."<br>";
-                        }
-                   ?>
+                    $instruction = $list1['instructions'];
+                    $steps = explode("<br>", $instruction);
+                    foreach ($steps as $steps) {
+                        echo $steps . "<br>";
+                    }
+                    ?>
                 </ol>
             </details>
         </div>
@@ -109,19 +109,21 @@ and open the template in the editor.
                 <hr>
             </details>
             <br>
-            <form method="post"role="form">
-                <div class="form-group">
+            <div class="form-group">
+                <form method="post"role="form">
                     <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="write a comment..."></textarea>
                     <input type="hidden" id="recipe_id" value="<?php echo $id ?>">
                     <input type="hidden" id="user_id" value="<?php echo $list1['user_id']; ?>"
-                </div>
-                <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
-            </form>
+                    <br>
+                    <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
+                </form>
+            </div>
         </div>
+
         <br>
         <?php include 'footer.php'; ?>
     </body>
-     <script type="text/javascript">
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#comment_button').click(function () {
                 var message = $('#comment').val();
@@ -136,10 +138,10 @@ and open the template in the editor.
                         recipe: recipeID
                     },
                     success: function (data) {
-                       $("#output").html(data);
+                        $("#output").html(data);
                     }
                 });
             });
         });
-     </script>
+    </script>
 </html>
