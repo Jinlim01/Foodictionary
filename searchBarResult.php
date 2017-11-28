@@ -1,30 +1,29 @@
 <?php
-    require_once("database.php");
+require_once("database.php");
 
-    $searchWord = filter_input(INPUT_POST, "search", FILTER_SANITIZE_STRING);
+$searchWord = filter_input(INPUT_POST, "search", FILTER_SANITIZE_STRING);
 
-    $searchWord = "'%" . $searchWord . "%'";
+$searchWord = "'%" . $searchWord . "%'";
 
-    $query1="SELECT * FROM recipe WHERE (food_name LIKE" . $searchWord. "or ingridiants LIKE" . $searchWord. " or instructions LIKE " . $searchWord. ");";
-    $statement1 =$db->prepare($query1);
-    $statement1->execute();
-    $search = $statement1->fetchAll();
-    $statement1->closeCursor();
-
-    
-    $query3 = "SELECT * FROM food_category";
-    $statement3 = $db->prepare($query3);
-    $statement3->execute();
-    $list3 = $statement3->fetchAll();
-    $statement3->closeCursor();
+$query1 = "SELECT * FROM recipe WHERE (food_name LIKE" . $searchWord . "or ingridiants LIKE" . $searchWord . " or instructions LIKE " . $searchWord . ");";
+$statement1 = $db->prepare($query1);
+$statement1->execute();
+$search = $statement1->fetchAll();
+$statement1->closeCursor();
 
 
-    $query4 = "SELECT * FROM food_type";
-    $statement4 = $db->prepare($query4);
-    $statement4->execute();
-    $list4 = $statement4->fetchAll();
-    $statement4->closeCursor();
+$query3 = "SELECT * FROM food_category";
+$statement3 = $db->prepare($query3);
+$statement3->execute();
+$list3 = $statement3->fetchAll();
+$statement3->closeCursor();
 
+
+$query4 = "SELECT * FROM food_type";
+$statement4 = $db->prepare($query4);
+$statement4->execute();
+$list4 = $statement4->fetchAll();
+$statement4->closeCursor();
 ?>
 <html>
     <head>
@@ -42,7 +41,7 @@
     <body>
         <?php include 'navbar.php' ?>
 
-        <div class="container-fluid">
+        <div class="container-fluid" style="background-color: #efefef;">
             <div class="row">
                 <!-- Filter Box -->
                 <div class="col-sm-12 col-md-2 col-xs-12 col-md-offset-1 filter-box">
@@ -68,7 +67,7 @@
                 <div class="col-sm-9 col-xs-12">
                     <h2 class="col-md-offset-1">Your Search Result:</h2>
                     <?php
-                    foreach($search as $search) {
+                    foreach ($search as $search) {
                         echo
                         '<div class="col-sm-6 col-md-3 menu">
                         <a href="#"><img class="img-responsive recipe-img" src="img/' . $search['image'] . '"></a>
@@ -83,6 +82,10 @@
 
 
             </div>
+            <br>
+        </div>
+
+        <?php include 'footer.php'; ?>
     </body>
 </html>
 
