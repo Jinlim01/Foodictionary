@@ -32,6 +32,7 @@ and open the template in the editor.
         <!--Font Awesome css-->
         <link href="vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css"/>
         <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
     </head>
     <body>
         <?php include 'navbar.php';?>
@@ -81,7 +82,10 @@ and open the template in the editor.
             <h2 class="comments"><i class="fa fa-comments"></i>&nbsp; COMMENTS</h2>
             <details>
                 <summary>View more comments</summary>
-
+                <div id="output">
+                    
+                    
+                </div>
 
 
             </details>
@@ -89,6 +93,8 @@ and open the template in the editor.
             <form method="post"role="form">
                 <div class="form-group">
                     <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="write a comment..."></textarea>
+                    <input type="hidden" id="recipe_id" value="<?php echo $id ?>">
+                    <input type="hidden" id="user_id" value="<?php echo $list1['user_id']; ?>"
                 </div>
                 <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
             </form>
@@ -96,4 +102,25 @@ and open the template in the editor.
         <br>
         <?php include 'footer.php';?>
     </body>
+     <script type="text/javascript">
+        $(document).ready(function () {
+            $('#comment_button').click(function () {
+                var message = $('#comment').val();
+                var recipeID = $('#recipe_id').val();
+                var userID = $('#user_id').val();
+                $.ajax({
+                    type: "post",
+                    url: "addComment.php", //get response from this file
+                    data: {
+                        comment: message,
+                        user: userID,
+                        recipe: recipeID
+                    },
+                    success: function (data) {
+                       $("#output").html(data);
+                    }
+                });
+            });
+        });
+     </script>
 </html>
