@@ -10,7 +10,6 @@ $statement1->execute();
 $list1 = $statement1->fetch();
 $statement1->closeCursor();
 
-
 $query3 = "SELECT * FROM food_category";
 $statement3 = $db->prepare($query3);
 $statement3->execute();
@@ -86,13 +85,25 @@ and open the template in the editor.
                 <div class="form-group">
                     <label class="control-label col-sm-2">Ingredients</label>
                     <div class="col-sm-10">
-                        <textarea id="ingredient" name="ingredient" class="form-control" rows="5" ><?php echo $list1['ingridiants'] ?></textarea>
+                        <textarea id="ingredient" name="ingredient" class="form-control" rows="5" ><?php
+                                echo "\n";
+                                $words = $list1['ingridiants'];
+                                $words = str_replace("<br>","\n", $words);
+                                echo $words;
+                            ?>
+                        </textarea>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="control-label col-sm-2">Instructions</label>
                     <div class="col-sm-10">
-                        <textarea id="instructions" name="instructions" class="form-control" rows="10"><?php echo $list1['instructions'] ?></textarea>
+                        <textarea id="instructions" name="instructions" class="form-control" rows="10"><?php 
+                                echo "\n";
+                                $words = $list1['instructions'];
+                                $words = str_replace("<br>","\n", $words);
+                                echo $words;
+                            ?>
+                        </textarea>
                     </div>
                 </div>
                 <div class="form-group">
