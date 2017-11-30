@@ -15,6 +15,14 @@ $statement2->bindValue(":user_id", $list1['user_id']);
 $statement2->execute();
 $list2 = $statement2->fetch();
 $statement2->closeCursor();
+
+$query3 = "SELECT * FROM comments where recipe_id = :recipe_id ORDER BY comment_id DESC";
+$statement3 = $db->prepare($query3);
+$statement3->bindValue(":recipe_id", $id);
+$statement3->execute();
+$list3 = $statement3->fetchAll();
+$statement3->closeCursor();
+
 ?>
 <!DOCTYPE html>
 <!--
@@ -81,32 +89,28 @@ and open the template in the editor.
         <div class="container comments-container">
             <h2 class="comments"><i class="fa fa-comments"></i>&nbsp; COMMENTS</h2>
 
-            <details class="comment-display">
+            <details id="output" class="comment-display">
                 <summary>View more comments</summary>
-                <div>
-                    <span>Username</span>
-                    <br>
-                    <p>This dish taste like panda</p>
-                    <button class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
-                    <br>
-                </div>
-                <hr>
-                <div>
-                    <span>Username</span>
-                    <br>
-                    <p>This dish taste like panda</p>
-                    <button class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
-                    <br>
-                </div>
-                <hr>
-                <div>
-                    <span>Username</span>
-                    <br>
-                    <p>This dish taste like panda</p>
-                    <button class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
-                    <br>
-                </div>
-                <hr>
+                <?php 
+                    foreach($list3 as $comments){
+                        $query4 = "SELECT * FROM user where user_id = :user_id";
+                        $statement4 = $db->prepare($query4);
+                        $statement4->bindValue(":user_id", $comments['user_id']);
+                        $statement4->execute();
+                        $list4 = $statement4->fetch();
+                        $statement4->closeCursor();
+                        echo '<div>
+                                <span>'.$list4['user_name'].'</span>
+                                <br>
+                                <p>'.$comments['contents'].'</p>
+                                <button onclick=deleteComment() id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
+                                <input type="hidden" id="comment_id" value="'.$comments['comment_id'].'">
+                                <input type="hidden" id="recipe_id" value="'.$id.'">
+                                <br>
+                               </div> <hr>
+                               ';
+                    }
+                ?>
             </details>
             <br>
             <div class="form-group">
@@ -143,5 +147,25 @@ and open the template in the editor.
                 });
             });
         });
+       function deleteComment(){
+           
+       
+       $(document).ready(function () {
+                alert('hi');
+                var id = $('#comment_id').val();
+                var recipeID = $('#recipe_id').val();
+                $.ajax({
+                    type: "post",
+                    url: "deleteComment.php",
+                    data: {
+                        id: id,
+                        recipe: recipeID
+                    },
+                    success: function (data) {
+                        $("#output").html(data);
+                    }
+                });
+
+        });}
     </script>
 </html>

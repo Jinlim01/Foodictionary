@@ -5,21 +5,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+include('database.php');
 
-include("database.php");
+$id = $_POST['id'];
+$recipe = $_POST['recipe'];
 
-$message = $_POST['comment'];
-$user= $_POST['user'];
-$recipe= $_POST['recipe'];
+   
+$query1 = "DELETE FROM comments WHERE comment_id = :comment_id";
+$statement1 = $db->prepare($query1);
+$statement1->bindValue(":comment_id",$id);
+$statement1->execute();
+$statement1->closeCursor();
 
-
-$query = "INSERT INTO comments (user_id,recipe_id,contents) VALUES (:user_id , :recipe_id , :contents) ";
-$statement = $db->prepare($query);
-$statement->bindValue(":user_id", $user);
-$statement->bindValue(":recipe_id", $recipe);
-$statement->bindValue(":contents", $message);
-$statement->execute();
-$statement->closeCursor();
 
 
 $query2 = "SELECT * FROM comments WHERE recipe_id=:recipe_id ORDER BY comment_id DESC;";
@@ -49,5 +46,6 @@ foreach($result as $comments){
                </div> <hr>
                ';
 }
+
 
 echo $string;
