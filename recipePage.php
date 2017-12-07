@@ -22,6 +22,14 @@ $statement3->bindValue(":recipe_id", $id);
 $statement3->execute();
 $list3 = $statement3->fetchAll();
 $statement3->closeCursor();
+
+$query4 = "SELECT * FROM rating where recipe_id = :recipe_id AND user_id =:user_id";
+$statement4 = $db->prepare($query4);
+$statement4->bindValue(":recipe_id", $id);
+$statement4->bindValue(":user_id",$_SESSION['id']);
+$statement4->execute();
+$list4 = $statement4->fetch();
+$statement4->closeCursor();
 ?>
 <!DOCTYPE html>
 <!--
@@ -58,9 +66,18 @@ and open the template in the editor.
                 }
             }
             ?>
-            <div style="padding-left: 0px !important;" class="col-md-3">
+            <div name="ratingBoard" id="ratingBoard" style="padding-left: 0px !important;" class="col-md-3">
                 <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?>/10</h3>
             </div>
+            <?php
+                if(empty($list4) && isset($_SESSION['id'])){
+                   echo'<div name="ratingBar" id="ratingBar">
+                        Rate the dish
+                        <form id="ratingForm" method="post"><input type="number" name="rating" id="rating" min="0" max="10"><input type="button" onclick="ratingUpdate('. $_SESSION['id'].','.$id. ')"</form>
+                        </div>' ;
+                }
+            ?>
+            
             <div class="col-md-3">
                 <h3><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; <?php echo $list1['cooking_time'] ?> minutes</h3>
             </div>
@@ -202,5 +219,26 @@ and open the template in the editor.
 
             });
         }
+        
+        function ratingUpdate(userID,recipeID) {
+            $(document).ready(function () {
+                var rating = $('#rating').val();
+                $.ajax({
+                    type: "post",
+                    url: "ratingUpdate.php",
+                    data: {
+                        rating: rating,
+                        userID: userID,
+                        recipeID: recipeID
+                    },
+                    success: function (data) {
+                         $("#ratingBoard").html(data);
+                         $("#ratingBar").remove();
+                    }
+                });
+
+            });
+        }
+        
     </script>
 </html>
