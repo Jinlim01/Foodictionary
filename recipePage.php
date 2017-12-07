@@ -62,7 +62,7 @@ and open the template in the editor.
                 <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?>/10</h3>
             </div>
             <div class="col-md-3">
-                <h3><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?> minutes</h3>
+                <h3><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; <?php echo $list1['cooking_time'] ?> minutes</h3>
             </div>
         </div>
 
@@ -104,18 +104,14 @@ and open the template in the editor.
                     $list4 = $statement4->fetch();
                     $statement4->closeCursor();
                     echo '<div>
-                                <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
-                                <br>
-                                <p>' . $comments['contents'] . '</p>';
-                    if($comments['user_id']==$_SESSION['id']){
-                        echo'<button onclick=deleteComment() id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>';
+                        <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
+                        <br>
+                        <p>' . $comments['contents'] . '</p>';
+                    if ($comments['user_id'] == $_SESSION['id']) {
+                        echo '<button onclick=displayUpdate(' . $comments['comment_id'] . ',' . $id . ')>Update comment</button>';
+                        echo'<button onclick=deleteComment(' . $comments['comment_id'] . ',' . $id . ') id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>';
                     }
-                        echo'    
-                                <input type="hidden" id="comment_id" value="' . $comments['comment_id'] . '">
-                                <input type="hidden" id="recipe_id" value="' . $id . '">
-                                <br>
-                               </div> <hr>
-                               ';
+                    echo'<br></div> <hr>';
                 }
                 ?>
             </details>
@@ -154,19 +150,50 @@ and open the template in the editor.
                 });
             });
         });
-        function deleteComment() {
-
-
+        function deleteComment(id, recipeID) {
             $(document).ready(function () {
-                alert('hi');
-                var id = $('#comment_id').val();
-                var recipeID = $('#recipe_id').val();
                 $.ajax({
                     type: "post",
                     url: "deleteComment.php",
                     data: {
                         id: id,
                         recipe: recipeID
+                    },
+                    success: function (data) {
+                        $("#output").html(data);
+                    }
+                });
+
+            });
+        }
+
+        function displayUpdate(id, recipeID) {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "post",
+                    url: "displayUpdate.php",
+                    data: {
+                        id: id,
+                        recipe: recipeID
+                    },
+                    success: function (data) {
+                        $("#output").html(data);
+                    }
+                });
+
+            });
+        }
+        
+        function updateComment(id, recipeID) {
+            $(document).ready(function () {
+                var comments = $('#comments').val();
+                $.ajax({
+                    type: "post",
+                    url: "updateComment.php",
+                    data: {
+                        commentID: id,
+                        recipe: recipeID,
+                        comments: comments
                     },
                     success: function (data) {
                         $("#output").html(data);

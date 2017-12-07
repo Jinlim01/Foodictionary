@@ -71,13 +71,13 @@ and open the template in the editor.
             <div class="navbar-inner">
                 <ul class="nav navbar-nav" id="inner-option">
                     <li class="inner">
-                        <a href="">Cook in 30 Minutes</a>
+                        <a href="fastCook.php">Cook in 30 Minutes</a>
                     </li>
                     <li class="inner">
-                        <a href="">Pick A Meal</a>
+                        <a href="randomMeal.php">Pick A Meal</a>
                     </li>
                     <li class="inner">
-                        <a href="">Top Rated</a>
+                        <a href="topRated.php">Top Rated</a>
                     </li>
                 </ul>
             </div>

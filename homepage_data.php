@@ -8,7 +8,7 @@
 
 require_once 'database.php';
 
-$query1 = "SELECT * FROM recipe";
+$query1 = "SELECT * FROM recipe ORDER BY recipe_id DESC";
 $statement1 = $db->prepare($query1);
 $statement1->execute();
 $list1 = $statement1->fetchAll();

@@ -29,7 +29,7 @@ $statement2->execute();
 $result = $statement2->fetchAll();
 $statement2->closeCursor();
 
-$string ='<summary>View more comments</summary>';
+$string ='<summary>View more comments</summary><br>';
 
 foreach($result as $comments){
     $query4 = "SELECT * FROM user where user_id = :user_id";
@@ -38,16 +38,14 @@ foreach($result as $comments){
         $statement4->execute();
         $list4 = $statement4->fetch();
         $statement4->closeCursor();
-        echo '<div>
-                <span>'.$list4['user_name'].'</span>
-                <br>
-                <p>'.$comments['contents'].'</p>
-                <button onclick=deleteComment() id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
-                <input type="hidden" id="comment_id" value="'.$comments['comment_id'].'">
-                <input type="hidden" id="recipe_id" value="'.$recipe.'">
-                <br>
-               </div> <hr>
-               ';
+        $string = $string . '<div>
+            <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
+            <br>
+            <p>' . $comments['contents'] . '</p>';
+        if($comments['user_id'] == $_SESSION['id']){
+            $string = $string . '<button onclick=displayUpdate('.$comments['comment_id'].','.$recipe.')>Update comment</button><button onclick=deleteComment('.$comments['comment_id'].','.$recipe.') id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>';
+        }
+            $string = $string . '<br></div> <hr>';
 }
 
 echo $string;
