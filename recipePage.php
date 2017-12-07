@@ -22,7 +22,6 @@ $statement3->bindValue(":recipe_id", $id);
 $statement3->execute();
 $list3 = $statement3->fetchAll();
 $statement3->closeCursor();
-
 ?>
 <!DOCTYPE html>
 <!--
@@ -59,8 +58,12 @@ and open the template in the editor.
                 }
             }
             ?>
-
-            <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?>/10</h3>
+            <div style="padding-left: 0px !important;" class="col-md-3">
+                <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?>/10</h3>
+            </div>
+            <div class="col-md-3">
+                <h3><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?> minutes</h3>
+            </div>
         </div>
 
         <div class="container ingredients-container">
@@ -91,25 +94,26 @@ and open the template in the editor.
 
             <details id="output" class="comment-display">
                 <summary>View more comments</summary>
-                <?php 
-                    foreach($list3 as $comments){
-                        $query4 = "SELECT * FROM user where user_id = :user_id";
-                        $statement4 = $db->prepare($query4);
-                        $statement4->bindValue(":user_id", $comments['user_id']);
-                        $statement4->execute();
-                        $list4 = $statement4->fetch();
-                        $statement4->closeCursor();
-                        echo '<div>
-                                <span>'.$list4['user_name'].'</span>
+                <br>
+                <?php
+                foreach ($list3 as $comments) {
+                    $query4 = "SELECT * FROM user where user_id = :user_id";
+                    $statement4 = $db->prepare($query4);
+                    $statement4->bindValue(":user_id", $comments['user_id']);
+                    $statement4->execute();
+                    $list4 = $statement4->fetch();
+                    $statement4->closeCursor();
+                    echo '<div>
+                                <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
                                 <br>
-                                <p>'.$comments['contents'].'</p>
+                                <p>' . $comments['contents'] . '</p>
                                 <button onclick=deleteComment() id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
-                                <input type="hidden" id="comment_id" value="'.$comments['comment_id'].'">
-                                <input type="hidden" id="recipe_id" value="'.$id.'">
+                                <input type="hidden" id="comment_id" value="' . $comments['comment_id'] . '">
+                                <input type="hidden" id="recipe_id" value="' . $id . '">
                                 <br>
                                </div> <hr>
                                ';
-                    }
+                }
                 ?>
             </details>
             <br>
@@ -118,7 +122,7 @@ and open the template in the editor.
                     <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="write a comment..."></textarea>
                     <input type="hidden" id="recipe_id" value="<?php echo $id ?>">
                     <input type="hidden" id="user_id" value="<?php echo $list1['user_id']; ?>"
-                    <br>
+                           <br><br>
                     <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
                 </form>
             </div>
@@ -147,10 +151,10 @@ and open the template in the editor.
                 });
             });
         });
-       function deleteComment(){
-           
-       
-       $(document).ready(function () {
+        function deleteComment() {
+
+
+            $(document).ready(function () {
                 alert('hi');
                 var id = $('#comment_id').val();
                 var recipeID = $('#recipe_id').val();
@@ -166,6 +170,7 @@ and open the template in the editor.
                     }
                 });
 
-        });}
+            });
+        }
     </script>
 </html>
