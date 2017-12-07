@@ -26,6 +26,7 @@ if (isset($list1)) {
     if ($list1['password'] == $password) {
         $_SESSION['user'] = $list1['user_name'];
         $_SESSION['email'] = $list1['email_address'];
+        $_SESSION['id'] = $list1['user_id'];
         header('location:homePage.php');
     } else {
         $_SESSION['error1'] = "Username/Email address or password is incorrect";

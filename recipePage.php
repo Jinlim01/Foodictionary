@@ -106,8 +106,11 @@ and open the template in the editor.
                     echo '<div>
                                 <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
                                 <br>
-                                <p>' . $comments['contents'] . '</p>
-                                <button onclick=deleteComment() id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>
+                                <p>' . $comments['contents'] . '</p>';
+                    if($comments['user_id']==$_SESSION['id']){
+                        echo'<button onclick=deleteComment() id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>';
+                    }
+                        echo'    
                                 <input type="hidden" id="comment_id" value="' . $comments['comment_id'] . '">
                                 <input type="hidden" id="recipe_id" value="' . $id . '">
                                 <br>
@@ -121,7 +124,7 @@ and open the template in the editor.
                 <form method="post"role="form">
                     <textarea class="form-control" id="comment" name="comment" rows="3" placeholder="write a comment..."></textarea>
                     <input type="hidden" id="recipe_id" value="<?php echo $id ?>">
-                    <input type="hidden" id="user_id" value="<?php echo $list1['user_id']; ?>"
+                    <input type="hidden" id="user_id" value="<?php echo $_SESSION['id']; ?>"
                            <br><br>
                     <button type="button" id="comment_button" class="btn comment-btn">Submit</button>
                 </form>

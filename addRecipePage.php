@@ -85,6 +85,14 @@ and open the template in the editor.
                         <textarea id="instructions" name="instructions" class="form-control" rows="10" placeholder="1. Prepare a 500ml of boiled water..."></textarea>
                     </div>
                 </div>
+                
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Time Estimated (in minutes)</label>
+                    <div class="col-sm-10">
+                        <input type="" class="form-control" id="time" placeholder="" name="time">
+                    </div>
+                </div>
+                
                 <div class="form-group">
                     <label class="control-label col-sm-2">Food Type</label>
                     <div class="col-sm-10">

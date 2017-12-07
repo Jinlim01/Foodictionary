@@ -99,8 +99,18 @@ $statement->bindValue(":password", $password);
 $statement->execute();
 $statement->closeCursor();
 
+
+$query3 = "SELECT * FROM user where email_address = :email_address";
+$statement3 = $db->prepare($query3);
+$statement3->bindValue(":email_address", $email);
+$statement3->execute();
+$list3 = $statement3->fetch();
+$statement3->closeCursor();
+
+
 $_SESSION['user'] = $user_name ;
 $_SESSION['email'] = $email ; 
+$_SESSION['id']= $list3['user_id'];
 
 header('location:homePage.php');
 
