@@ -87,9 +87,9 @@ and open the template in the editor.
                 </div>
                 
                 <div class="form-group">
-                    <label class="control-label col-sm-2">Time Estimated (in minutes)</label>
-                    <div class="col-sm-10">
-                        <input type="" class="form-control" id="time" placeholder="" name="time">
+                    <label class="control-label col-sm-2">Time Estimated (minutes)</label>
+                    <div class="col-sm-2">
+                        <input type="number" min="0" class="form-control" id="time" placeholder="" name="time">
                     </div>
                 </div>
                 
