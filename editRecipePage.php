@@ -1,11 +1,11 @@
-<?php 
+<?php
 require_once('database.php');
 
 $id = $_GET['id'];
 
 $query1 = "SELECT * FROM recipe WHERE recipe_id = :id";
 $statement1 = $db->prepare($query1);
-$statement1->bindValue(":id",$id);
+$statement1->bindValue(":id", $id);
 $statement1->execute();
 $list1 = $statement1->fetch();
 $statement1->closeCursor();
@@ -74,9 +74,9 @@ and open the template in the editor.
                     <label class="control-label col-sm-2">Category</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="style" name="style">
-                            <?php 
-                            foreach($list3 as $list3){
-                                echo '<option id="style" name="style" value="'.$list3['food_category_id'].'">'.$list3['food_category_name'].'</option>';
+                            <?php
+                            foreach ($list3 as $list3) {
+                                echo '<option id="style" name="style" value="' . $list3['food_category_id'] . '">' . $list3['food_category_name'] . '</option>';
                             }
                             ?>
                         </select>
@@ -86,10 +86,10 @@ and open the template in the editor.
                     <label class="control-label col-sm-2">Ingredients</label>
                     <div class="col-sm-10">
                         <textarea id="ingredient" name="ingredient" class="form-control" rows="5" ><?php
-                                echo "\n";
-                                $words = $list1['ingridiants'];
-                                $words = str_replace("<br>","\n", $words);
-                                echo $words;
+                            echo "\n";
+                            $words = $list1['ingridiants'];
+                            $words = str_replace("<br>", "\n", $words);
+                            echo $words;
                             ?>
                         </textarea>
                     </div>
@@ -97,26 +97,34 @@ and open the template in the editor.
                 <div class="form-group">
                     <label class="control-label col-sm-2">Instructions</label>
                     <div class="col-sm-10">
-                        <textarea id="instructions" name="instructions" class="form-control" rows="10"><?php 
-                                echo "\n";
-                                $words = $list1['instructions'];
-                                $words = str_replace("<br>","\n", $words);
-                                echo $words;
+                        <textarea id="instructions" name="instructions" class="form-control" rows="10"><?php
+                            echo "\n";
+                            $words = $list1['instructions'];
+                            $words = str_replace("<br>", "\n", $words);
+                            echo $words;
                             ?>
                         </textarea>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Time Estimated (minutes)</label>
+                    <div class="col-sm-2">
+                        <input type="number" min="0" class="form-control" id="time" placeholder="" name="time">
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <label class="control-label col-sm-2">Food Type</label>
                     <div class="col-sm-10">
-                        <?php 
-                            foreach($list4 as $list4){
-                                echo '<label class="radio-inline"><input value="'.$list4['food_type_id'].'" type="checkbox" name="type[]">&nbsp; '.$list4['food_type_name'].'</label>';
-                            }
+                        <?php
+                        foreach ($list4 as $list4) {
+                            echo '<label class="radio-inline"><input value="' . $list4['food_type_id'] . '" type="checkbox" name="type[]">&nbsp; ' . $list4['food_type_name'] . '</label>';
+                        }
                         ?>
                     </div>
                 </div>
-                
+
                 <br>
                 <center><input type="submit" class="add-btn" value="Edit"></center>
             </form>
