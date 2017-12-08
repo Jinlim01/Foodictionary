@@ -49,9 +49,9 @@ foreach($result as $comments){
         
         $string = $string . '<div><span style="font-weight: bold;">' . $list4['user_name'] . '</span>';
         if(empty($list5)){
-           $string = $string .' <button onclick=like("empty",'.$_SESSION['id'].','.$recipe.','.$comments['comment_id'].') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> '.$comments['likes'].'</button>';
+           $string = $string .' <button onclick=like("empty",'.$_SESSION['id'].','.$recipeID.','.$comments['comment_id'].') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> '.$comments['likes'].'</button>';
         }else{
-           $string = $string .'<button onclick=like("full",'.$_SESSION['id'].','.$recipe.','.$comments['comment_id'].') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i>'.$comments['likes'].'</button>';                   
+           $string = $string .'<button onclick=like("full",'.$_SESSION['id'].','.$recipeID.','.$comments['comment_id'].') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i>'.$comments['likes'].'</button>';                   
         }
         $string = $string .'<br>
             <p>' . $comments['contents'] . '</p>';
