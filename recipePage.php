@@ -26,7 +26,7 @@ $statement3->closeCursor();
 $query4 = "SELECT * FROM rating where recipe_id = :recipe_id AND user_id =:user_id";
 $statement4 = $db->prepare($query4);
 $statement4->bindValue(":recipe_id", $id);
-$statement4->bindValue(":user_id",$_SESSION['id']);
+$statement4->bindValue(":user_id", $_SESSION['id']);
 $statement4->execute();
 $list4 = $statement4->fetch();
 $statement4->closeCursor();
@@ -69,17 +69,20 @@ and open the template in the editor.
             <div name="ratingBoard" id="ratingBoard" style="padding-left: 0px !important;" class="col-md-3">
                 <h3><i class="fa fa-star" aria-hidden="true"></i>&nbsp; <?php echo $list1['rating_number'] ?>/10</h3>
             </div>
-            <?php
-                if(empty($list4) && isset($_SESSION['id'])){
-                   echo'<div name="ratingBar" id="ratingBar">
-                        Rate the dish
-                        <form id="ratingForm" method="post"><input type="number" name="rating" id="rating" min="0" max="10"><input type="button" onclick="ratingUpdate('. $_SESSION['id'].','.$id. ')"</form>
-                        </div>' ;
-                }
-            ?>
-            
+
             <div class="col-md-3">
                 <h3><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; <?php echo $list1['cooking_time'] ?> minutes</h3>
+            </div>
+            
+            <div class="col-md-3">
+                <?php
+                if (empty($list4) && isset($_SESSION['id'])) {
+                    echo'<div name="ratingBar" id="ratingBar">
+                        Rate the dish
+                        <form id="ratingForm" method="post"><input type="number" name="rating" id="rating" min="0" max="10"><input type="button" value="submit" onclick="ratingUpdate(' . $_SESSION['id'] . ',' . $id . ')"</form>
+                        </div>';
+                }
+                ?>
             </div>
         </div>
 
@@ -122,10 +125,12 @@ and open the template in the editor.
                     $statement4->closeCursor();
                     echo '<div>
                         <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
+                        <button onclick= id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> 10</button>
+                        <button onclick= id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i> 10</button>                        
                         <br>
                         <p>' . $comments['contents'] . '</p>';
                     if ($comments['user_id'] == $_SESSION['id']) {
-                        echo '<button onclick=displayUpdate(' . $comments['comment_id'] . ',' . $id . ')>Update comment</button>';
+                        echo '<button onclick=displayUpdate(' . $comments['comment_id'] . ',' . $id . ')  class="" style="float: right; margin-left:2px;"><i class="fa fa-pencil-square-o comment-del-btn"></i></button>';
                         echo'<button onclick=deleteComment(' . $comments['comment_id'] . ',' . $id . ') id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>';
                     }
                     echo'<br></div> <hr>';
@@ -200,7 +205,7 @@ and open the template in the editor.
 
             });
         }
-        
+
         function updateComment(id, recipeID) {
             $(document).ready(function () {
                 var comments = $('#comments').val();
@@ -219,8 +224,8 @@ and open the template in the editor.
 
             });
         }
-        
-        function ratingUpdate(userID,recipeID) {
+
+        function ratingUpdate(userID, recipeID) {
             $(document).ready(function () {
                 var rating = $('#rating').val();
                 $.ajax({
@@ -232,13 +237,13 @@ and open the template in the editor.
                         recipeID: recipeID
                     },
                     success: function (data) {
-                         $("#ratingBoard").html(data);
-                         $("#ratingBar").remove();
+                        $("#ratingBoard").html(data);
+                        $("#ratingBar").remove();
                     }
                 });
 
             });
         }
-        
+
     </script>
 </html>
