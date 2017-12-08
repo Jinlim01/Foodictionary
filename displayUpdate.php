@@ -17,7 +17,7 @@ $statement2->execute();
 $result = $statement2->fetchAll();
 $statement2->closeCursor();
 
-$string = '<summary>View more comments</summary><br>hi';
+$string = '<summary>View more comments</summary><br>';
 
 for ($i = 0; $i < sizeof($result); $i++) {
     $query4 = "SELECT * FROM user where user_id = :user_id";
@@ -29,7 +29,7 @@ for ($i = 0; $i < sizeof($result); $i++) {
 
     $query5 = "SELECT * FROM comment_likes where comment_id = :comment_id AND user_id = :user_id";
     $statement5 = $db->prepare($query5);
-    $statement5->bindValue(":comment_id", $comments['comment_id']);
+    $statement5->bindValue(":comment_id", $result[$i]['comment_id']);
     $statement5->bindValue(":user_id", $_SESSION['id']);
     $statement5->execute();
     $list5 = $statement5->fetch();
@@ -37,10 +37,10 @@ for ($i = 0; $i < sizeof($result); $i++) {
 
     $string = $string . '<div><span style="font-weight: bold;">' . $list4['user_name'] . '</span>';
     if (empty($list5)) {
-        $string = $string . ' <button onclick=like("empty",' . $_SESSION['id'] . ',' . $id . ',' . $comments['comment_id'] . ') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> ' . $comments['likes'] . '</button><br>';
+        $string = $string . ' <button onclick=like("empty",' . $_SESSION['id'] . ',' . $id . ',' . $result[$i]['comment_id'] . ') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> ' . $result[$i]['likes'] . '</button><br>';
         ;
     } else {
-        $string = $string .  '<button onclick=like("full",' . $_SESSION['id'] . ',' . $id . ',' . $comments['comment_id'] . ') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i>' . $comments['likes'] . '</button><br>';
+        $string = $string .  '<button onclick=like("full",' . $_SESSION['id'] . ',' . $id . ',' . $result[$i]['comment_id'] . ') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i>' . $result[$i]['likes'] . '</button><br>';
     }
 
     if ($result[$i]['user_id'] == $_SESSION['id']) {
