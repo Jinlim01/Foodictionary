@@ -1,5 +1,6 @@
 <?php
 require_once('database.php');
+
 $id = $_GET['id'];
 
 $query1 = "SELECT * FROM recipe where recipe_id = :recipe_id";
@@ -23,13 +24,15 @@ $statement3->execute();
 $list3 = $statement3->fetchAll();
 $statement3->closeCursor();
 
-$query4 = "SELECT * FROM rating where recipe_id = :recipe_id AND user_id =:user_id";
-$statement4 = $db->prepare($query4);
-$statement4->bindValue(":recipe_id", $id);
-$statement4->bindValue(":user_id", $_SESSION['id']);
-$statement4->execute();
-$list4 = $statement4->fetch();
-$statement4->closeCursor();
+if (isset($_SESSION['id'])) {
+    $query9 = "SELECT * FROM rating where recipe_id = :recipe_id AND user_id =:user_id";
+    $statement9 = $db->prepare($query9);
+    $statement9->bindValue(":recipe_id", $id);
+    $statement9->bindValue(":user_id", $_SESSION['id']);
+    $statement9->execute();
+    $list9 = $statement9->fetch();
+    $statement9->closeCursor();
+}
 ?>
 <!DOCTYPE html>
 <!--
@@ -73,10 +76,10 @@ and open the template in the editor.
             <div class="col-md-3">
                 <h3><i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp; <?php echo $list1['cooking_time'] ?> minutes</h3>
             </div>
-            
+
             <div class="col-md-3">
                 <?php
-                if (empty($list4) && isset($_SESSION['id'])) {
+                if (empty($list9) && isset($_SESSION['id'])) {
                     echo'<div name="ratingBar" id="ratingBar">
                         Rate the dish
                         <form id="ratingForm" method="post"><input type="number" name="rating" id="rating" min="0" max="10"><input type="button" value="submit" onclick="ratingUpdate(' . $_SESSION['id'] . ',' . $id . ')"</form>
@@ -123,14 +126,32 @@ and open the template in the editor.
                     $statement4->execute();
                     $list4 = $statement4->fetch();
                     $statement4->closeCursor();
+
+                    if (isset($_SISSON['id'])) {
+                        $query5 = "SELECT * FROM comment_likes where comment_id = :comment_id AND user_id = :user_id";
+                        $statement5 = $db->prepare($query5);
+                        $statement5->bindValue(":comment_id", $comments['comment_id']);
+                        $statement5->bindValue(":user_id", $_SESSION['id']);
+                        $statement5->execute();
+                        $list5 = $statement5->fetch();
+                        $statement5->closeCursor();
+                    }
+
                     echo '<div>
-                        <span style="font-weight: bold;">' . $list4['user_name'] . '</span>
-                        <button onclick= id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> 10</button>
-                        <button onclick= id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i> 10</button>                        
-                        <br>
+                        <span style="font-weight: bold;">' . $list4['user_name'] . '</span>';
+                    if (isset($_SESSION['id'])) {
+                        if (empty($list5)) {
+                            echo' <button onclick=like("empty",' . $_SESSION['id'] . ',' . $id . ',' . $comments['comment_id'] . ') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> ' . $comments['likes'] . '</button>';
+                        } else {
+                            echo '<button onclick=like("full",' . $_SESSION['id'] . ',' . $id . ',' . $comments['comment_id'] . ') id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-up comment-del-btn"></i>' . $comments['likes'] . '</button>';
+                        }
+                    } else {
+                        echo' <button id="like_button" class="" style="background: transparent; border: 0px transparent;"><i class="fa fa-thumbs-o-up comment-del-btn"></i> ' . $comments['likes'] . '</button>';
+                    }
+                    echo'<br>
                         <p>' . $comments['contents'] . '</p>';
-                    if ($comments['user_id'] == $_SESSION['id']) {
-                        echo '<button onclick=displayUpdate(' . $comments['comment_id'] . ',' . $id . ')  class="" style="float: right; margin-left:2px;"><i class="fa fa-pencil-square-o comment-del-btn"></i></button>';
+                    if ( isset($_SESSION['id']) && $comments['user_id'] == $_SESSION['id']) {
+                        echo'<button onclick=displayUpdate(' . $comments['comment_id'] . ',' . $id . ') class="" style="float: right; margin-left:2px;"><i class="fa fa-pencil-square-o comment-del-btn"></i></button>';
                         echo'<button onclick=deleteComment(' . $comments['comment_id'] . ',' . $id . ') id="delete_button" class="" style="float: right;"><i class="fa fa-trash comment-del-btn"></i></button>';
                     }
                     echo'<br></div> <hr>';
@@ -191,6 +212,7 @@ and open the template in the editor.
 
         function displayUpdate(id, recipeID) {
             $(document).ready(function () {
+
                 $.ajax({
                     type: "post",
                     url: "displayUpdate.php",
@@ -239,6 +261,25 @@ and open the template in the editor.
                     success: function (data) {
                         $("#ratingBoard").html(data);
                         $("#ratingBar").remove();
+                    }
+                });
+
+            });
+        }
+
+        function like(statement, userID, recipeID, commentID) {
+            $(document).ready(function () {
+                $.ajax({
+                    type: "post",
+                    url: "likeFunction.php",
+                    data: {
+                        statement: statement,
+                        userID: userID,
+                        recipeID: recipeID,
+                        commentID: commentID
+                    },
+                    success: function (data) {
+                        $("#output").html(data);
                     }
                 });
 
