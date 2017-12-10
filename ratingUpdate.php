@@ -35,7 +35,20 @@ $statement3->execute();
 $list3 = $statement3->fetch();
 $statement3->closeCursor();
 
-$result = ( $list2['rating_number'] + $rating ) / $list3[0]; 
+$query5 = "SELECT * FROM rating WHERE recipe_id =:recipe_id";
+$statement5 = $db->prepare($query5);
+$statement5->bindValue(":recipe_id",$recipeID);
+$statement5->execute();
+$list5 = $statement5->fetchAll();
+$statement5->closeCursor();
+
+$total = 0 ;
+foreach($list5 as $loop){
+    $total = $total + $loop['rating_score'];
+}
+
+
+$result = $total / $list3[0]; 
 $return = round($result);
 
 $query4 = "UPDATE recipe SET rating_number = :rating_number WHERE recipe_id = :recipe_id;";
